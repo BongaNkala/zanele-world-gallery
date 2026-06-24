@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zanele's World · Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #faf7f2;
+            color: #1e1e2a;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-wrapper {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        /* ===== HEADER ===== */
+        .brand {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #e0d6cb;
+            padding-bottom: 1rem;
+        }
+
+        .brand h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #3d2c1e, #6b4f3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand h1 i {
+            -webkit-text-fill-color: #b48b6e;
+            margin-right: 8px;
+        }
+
+        .brand .sub {
+            color: #6b5a4a;
+            font-size: 1rem;
+            background: #ede7df;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== UPLOAD CARD ===== */
+        .upload-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid #eee8e0;
+            transition: box-shadow 0.2s;
+        }
+
+        .upload-card:hover {
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+        }
+
+        .upload-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.2rem 2rem;
+        }
+
+        .file-input-wrapper {
+            flex: 2 1 240px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .file-input-wrapper label {
+            background: #f2ebe3;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #3f3225;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px dashed #b9a694;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-input-wrapper label:hover {
+            background: #e6dcd2;
+            border-color: #8e775f;
+        }
+
+        .file-input-wrapper label i {
+            font-size: 1.2rem;
+            color: #7f6246;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-name {
+            font-size: 0.9rem;
+            color: #5e4e3c;
+            background: #f5f0ea;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .upload-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem 1.2rem;
+            margin-left: auto;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            border: none;
+            background: #eae2d9;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            color: #2f261d;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: #4f3a28;
+            color: white;
+            box-shadow: 0 4px 10px rgba(70, 50, 35, 0.15);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #3d2d1e;
+            transform: scale(1.01);
+            box-shadow: 0 8px 16px rgba(60, 45, 30, 0.2);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cfc0b1;
+        }
+
+        .btn-outline:hover {
+            background: #f0e8df;
+            border-color: #aa927b;
+        }
+
+        .btn i {
+            font-size: 1rem;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-container {
+            margin-top: 1.2rem;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress-container.active {
+            display: flex;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 6px;
+            background: #e8e0d8;
+            border-radius: 20px;
+            overflow: hidden;
+            min-width: 120px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #b48b6e, #6b4f3a);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            color: #4f3a28;
+            font-weight: 500;
+            min-width: 70px;
+        }
+
+        .progress-icon {
+            color: #6b4f3a;
+            font-size: 1.1rem;
+        }
+
+        .upload-hint {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #7f6b59;
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 1.2rem;
+        }
+
+        .gallery-header h2 {
+            font-weight: 350;
+            font-size: 1.8rem;
+            color: #2e241b;
+        }
+
+        .gallery-header h2 i {
+            color: #b38867;
+            margin-right: 8px;
+        }
+
+        .gallery-counter {
+            background: #e5dbd1;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            color: #3f3225;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* ===== MEDIA CARDS ===== */
+        .media-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            transition: 0.25s ease;
+            border: 1px solid #ece3da;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(70, 50, 35, 0.08);
+            border-color: #d6c6b7;
+        }
+
+        .media-preview {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #f4efe9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .media-preview img,
+        .media-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-preview i {
+            font-size: 3rem;
+            color: #cbb7a5;
+            opacity: 0.7;
+        }
+
+        .media-info {
+            padding: 0.9rem 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .media-type-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            background: #ede5dc;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            color: #4c3b2c;
+            font-weight: 600;
+        }
+
+        .delete-btn {
+            background: transparent;
+            border: none;
+            color: #b28b78;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 6px;
+            transition: 0.15s;
+        }
+
+        .delete-btn:hover {
+            color: #b15336;
+            transform: scale(1.2);
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-gallery {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #fcf9f6;
+            border-radius: 60px;
+            color: #7e6c5b;
+            border: 2px dashed #dfd3c7;
+        }
+
+        .empty-gallery i {
+            font-size: 3.2rem;
+            color: #cbb7a5;
+            margin-bottom: 1rem;
+        }
+
+        .empty-gallery p {
+            font-size: 1.1rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 680px) {
+            .brand h1 {
+                font-size: 2rem;
+            }
+            .upload-grid {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .upload-actions {
+                margin-left: 0;
+                justify-content: flex-start;
+            }
+            .file-input-wrapper {
+                width: 100%;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 1rem;
+            }
+            .upload-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-wrapper">
+        <!-- ===== HEADER ===== -->
+        <header class="brand">
+            <h1><i class="fas fa-camera-retro"></i> Zanele's World</h1>
+            <span class="sub"><i class="far fa-eye"></i> · my story in frames</span>
+        </header>
+
+        <!-- ===== UPLOAD SECTION ===== -->
+        <div class="upload-card">
+            <div class="upload-grid">
+                <div class="file-input-wrapper">
+                    <label for="fileInput">
+                        <i class="fas fa-cloud-upload-alt"></i> Choose files
+                    </label>
+                    <input type="file" id="fileInput" accept="image/*,video/*" multiple />
+                    <span class="file-name" id="fileDisplay">no file selected</span>
+                </div>
+                <div class="upload-actions">
+                    <button class="btn btn-primary" id="uploadBtn">
+                        <i class="fas fa-upload"></i> Upload
+                    </button>
+                    <button class="btn btn-outline" id="clearAllBtn">
+                        <i class="fas fa-trash-alt"></i> Clear all
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== PROGRESS BAR ===== -->
+            <div class="progress-container" id="progressContainer">
+                <i class="fas fa-spinner fa-pulse progress-icon"></i>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-label" id="progressLabel">0%</span>
+            </div>
+
+            <div class="upload-hint">
+                <span><i class="fas fa-image"></i> JPG, PNG, GIF</span>
+                <span><i class="fas fa-video"></i> MP4, MOV, AVI</span>
+                <span><i class="fas fa-upload"></i> Click to select files</span>
+            </div>
+        </div>
+
+        <!-- ===== GALLERY ===== -->
+        <div class="gallery-header">
+            <h2><i class="fas fa-images"></i> Gallery</h2>
+            <span class="gallery-counter" id="mediaCounter">0 items</span>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="empty-gallery" id="emptyGallery">
+                <i class="fas fa-palette"></i>
+                <p>Your world is empty — upload your first photo or video</p>
+                <span style="font-size: 0.9rem; color: #a38d7a;">✨ Zanele's World awaits</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ===== STATE =====
+            let mediaItems = [];
+            let idCounter = 0;
+
+            // ===== DOM REFS =====
+            const fileInput = document.getElementById('fileInput');
+            const fileDisplay = document.getElementById('fileDisplay');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const clearAllBtn = document.getElementById('clearAllBtn');
+            const galleryGrid = document.getElementById('galleryGrid');
+            const emptyGallery = document.getElementById('emptyGallery');
+            const mediaCounter = document.getElementById('mediaCounter');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressFill = document.getElementById('progressFill');
+            const progressLabel = document.getElementById('progressLabel');
+
+            // ===== RENDER GALLERY =====
+            function renderGallery() {
+                // Remove all cards but keep emptyGallery
+                const children = galleryGrid.children;
+                for (let i = children.length - 1; i >= 0; i--) {
+                    const child = children[i];
+                    if (child.id !== 'emptyGallery') {
+                        galleryGrid.removeChild(child);
+                    }
+                }
+
+                // Show/hide empty state
+                if (mediaItems.length === 0) {
+                    emptyGallery.style.display = 'block';
+                    mediaCounter.textContent = '0 items';
+                    return;
+                }
+
+                emptyGallery.style.display = 'none';
+                mediaCounter.textContent = `${mediaItems.length} item${mediaItems.length > 1 ? 's' : ''}`;
+
+                // Render cards (newest first)
+                const reversed = [...mediaItems].reverse();
+                for (const item of reversed) {
+                    const card = document.createElement('div');
+                    card.className = 'media-card';
+                    card.dataset.id = item.id;
+
+                    // Preview
+                    const preview = document.createElement('div');
+                    preview.className = 'media-preview';
+
+                    if (item.type.startsWith('image/')) {
+                        const img = document.createElement('img');
+                        img.src = item.dataURL;
+                        img.alt = item.name || 'image';
+                        img.loading = 'lazy';
+                        preview.appendChild(img);
+                    } else if (item.type.startsWith('video/')) {
+                        const video = document.createElement('video');
+                        video.src = item.dataURL;
+                        video.controls = true;
+                        video.preload = 'metadata';
+                        video.muted = true;
+                        video.setAttribute('playsinline', '');
+                        preview.appendChild(video);
+                    } else {
+                        const icon = document.createElement('i');
+                        icon.className = 'fas fa-file';
+                        preview.appendChild(icon);
+                    }
+
+                    // Info row
+                    const info = document.createElement('div');
+                    info.className = 'media-info';
+
+                    const badge = document.createElement('span');
+                    badge.className = 'media-type-badge';
+                    const isVideo = item.type.startsWith('video/');
+                    badge.innerHTML = isVideo ?
+                        '<i class="fas fa-video" style="margin-right:4px;"></i> video' :
+                        '<i class="fas fa-image" style="margin-right:4px;"></i> photo';
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.innerHTML = '<i class="fas fa-times-circle"></i>';
+                    deleteBtn.setAttribute('aria-label', 'Delete media');
+                    deleteBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        deleteItem(item.id);
+                    });
+
+                    info.appendChild(badge);
+                    info.appendChild(deleteBtn);
+                    card.appendChild(preview);
+                    card.appendChild(info);
+                    galleryGrid.appendChild(card);
+                }
+            }
+
+            // ===== DELETE ITEM =====
+            function deleteItem(id) {
+                mediaItems = mediaItems.filter(function(item) {
+                    return item.id !== id;
+                });
+                renderGallery();
+                if (mediaItems.length === 0) {
+                    fileDisplay.textContent = 'no file selected';
+                    fileInput.value = '';
+                }
+            }
+
+            // ===== UPDATE PROGRESS =====
+            function updateProgress(loaded, total) {
+                const percent = Math.min(100, Math.round((loaded / total) * 100));
+                progressFill.style.width = percent + '%';
+                progressLabel.textContent = percent + '%';
+
+                if (loaded >= total) {
+                    setTimeout(function() {
+                        progressContainer.classList.remove('active');
+                        uploadBtn.disabled = false;
+                        uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Upload';
+                    }, 400);
+                }
+            }
+
+            // ===== ADD FILES =====
+            function addFiles(fileList) {
+                if (!fileList || fileList.length === 0) return;
+
+                // Filter valid files
+                const validFiles = [];
+                for (let i = 0; i < fileList.length; i++) {
+                    const file = fileList[i];
+                    if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+                        validFiles.push(file);
+                    }
+                }
+
+                if (validFiles.length === 0) {
+                    alert('Please select image or video files only.');
+                    return;
+                }
+
+                // Show progress bar
+                progressContainer.classList.add('active');
+                progressFill.style.width = '0%';
+                progressLabel.textContent = '0%';
+                uploadBtn.disabled = true;
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Uploading...';
+
+                let loaded = 0;
+                const total = validFiles.length;
+
+                for (let i = 0; i < validFiles.length; i++) {
+                    const file = validFiles[i];
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        const dataURL = e.target.result;
+                        const newItem = {
+                            id: ++idCounter,
+                            type: file.type,
+                            dataURL: dataURL,
+                            name: file.name || 'media'
+                        };
+                        mediaItems.push(newItem);
+                        loaded++;
+                        updateProgress(loaded, total);
+
+                        if (loaded === total) {
+                            renderGallery();
+                            fileInput.value = '';
+                            fileDisplay.textContent = 'no file selected';
+                        }
+                    };
+
+                    reader.onerror = function() {
+                        loaded++;
+                        updateProgress(loaded, total);
+                        if (loaded === total) {
+                            renderGallery();
+                            fileInput.value = '';
+                            fileDisplay.textContent = 'no file selected';
+                        }
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            // ===== CLEAR ALL =====
+            function clearAll() {
+                if (mediaItems.length === 0) return;
+                if (confirm('Delete all items from Zanele\'s World?')) {
+                    mediaItems = [];
+                    renderGallery();
+                    fileInput.value = '';
+                    fileDisplay.textContent = 'no file selected';
+                    progressContainer.classList.remove('active');
+                    uploadBtn.disabled = false;
+                    uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Upload';
+                }
+            }
+
+            // ===== EVENT LISTENERS =====
+            // File input change
+            fileInput.addEventListener('change', function(e) {
+                const files = e.target.files;
+                if (files.length === 0) {
+                    fileDisplay.textContent = 'no file selected';
+                    return;
+                }
+                const names = Array.from(files).map(function(f) {
+                    return f.name;
+                });
+                fileDisplay.textContent = names.length === 1 ? names[0] : names.length + ' files selected';
+            });
+
+            // Upload button
+            uploadBtn.addEventListener('click', function() {
+                if (fileInput.files.length === 0) {
+                    alert('Please select at least one photo or video.');
+                    return;
+                }
+                addFiles(fileInput.files);
+            });
+
+            // Clear all button
+            clearAllBtn.addEventListener('click', clearAll);
+
+            // ===== INIT =====
+            renderGallery();
+            console.log('✨ Zanele\'s World ready with progress bar');
+
+        })();
+    </script>
+</body>
+</html>
