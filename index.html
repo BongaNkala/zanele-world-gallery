@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zanele's World · Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="config.js"></script>
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -574,7 +575,7 @@
             // 🔐 HARDCODED GITHUB CREDENTIALS
             // ============================================================
 
-            const GITHUB_TOKEN = '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';
+            const GITHUB_TOKEN = window.GITHUB_TOKEN || '';
             const GITHUB_REPO = 'BongaNkala/zanele-world-gallery';
 
             // ============================================================
