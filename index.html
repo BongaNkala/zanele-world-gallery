@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zanele's World · Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <script src="config.js"></script>
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -67,7 +66,7 @@
 
         /* ===== STATUS BAR ===== */
         .status-bar {
-            background: #d4edda;
+            background: #d1ecf1;
             border-radius: 16px;
             padding: 0.8rem 1.5rem;
             margin-bottom: 2rem;
@@ -75,15 +74,15 @@
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
-            border: 1px solid #c3e6cb;
+            border: 1px solid #bee5eb;
         }
 
         .status-bar i {
-            color: #155724;
+            color: #0c5460;
         }
 
         .status-bar .status-text {
-            color: #155724;
+            color: #0c5460;
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -93,7 +92,7 @@
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            color: #155724;
+            color: #0c5460;
             font-weight: 600;
         }
 
@@ -507,7 +506,7 @@
             <i class="fas fa-spinner fa-pulse"></i>
             <span class="status-text" id="statusText">Connecting to GitHub...</span>
             <span class="repo-info"><i class="fab fa-github"></i> BongaNkala/zanele-world-gallery</span>
-            <span style="margin-left: auto; font-size: 0.8rem; color: #155724;">
+            <span style="margin-left: auto; font-size: 0.8rem; color: #0c5460;">
                 <i class="fas fa-cloud-upload-alt"></i> Auto-save enabled
             </span>
         </div>
@@ -545,7 +544,7 @@
                 <span><i class="fas fa-image"></i> JPG, PNG, GIF</span>
                 <span><i class="fas fa-video"></i> MP4, MOV, AVI</span>
                 <span><i class="fas fa-github"></i> Files auto-save to GitHub</span>
-                <span><i class="fas fa-lock"></i> Token configured</span>
+                <span><i class="fas fa-lock"></i> Token in localStorage</span>
             </div>
         </div>
 
@@ -572,14 +571,24 @@
             'use strict';
 
             // ============================================================
-            // 🔐 HARDCODED GITHUB CREDENTIALS
+            // 🔐 GITHUB TOKEN - Loaded from localStorage
             // ============================================================
 
-            const GITHUB_TOKEN = window.GITHUB_TOKEN || '';
             const GITHUB_REPO = 'BongaNkala/zanele-world-gallery';
+            
+            // Try to get token from localStorage
+            let GITHUB_TOKEN = localStorage.getItem('githubToken');
+
+            // If no token, ask user for it
+            if (!GITHUB_TOKEN) {
+                GITHUB_TOKEN = prompt('🔑 Enter your GitHub token to connect to the gallery:\n\n(You can get one at https://github.com/settings/tokens)\n\nMake sure to select "repo" scope!');
+                if (GITHUB_TOKEN) {
+                    localStorage.setItem('githubToken', GITHUB_TOKEN);
+                }
+            }
 
             // ============================================================
-            // END OF HARDCODED CREDENTIALS
+            // END OF CONFIG
             // ============================================================
 
             // ===== STATE =====
@@ -637,6 +646,14 @@
 
             // ===== CONNECT TO GITHUB =====
             function connectToGitHub() {
+                if (!GITHUB_TOKEN) {
+                    updateStatus('❌ No token provided', 'error');
+                    uploadBtn.disabled = true;
+                    uploadBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Token Required';
+                    showToast('❌ Please refresh and enter your GitHub token', 'error');
+                    return;
+                }
+
                 updateStatus('Connecting to GitHub...', 'connecting');
 
                 fetch('https://api.github.com/user', {
@@ -649,7 +666,9 @@
                     if (response.ok) {
                         return response.json();
                     } else if (response.status === 401) {
-                        throw new Error('Invalid token');
+                        // Token invalid - clear it and ask again
+                        localStorage.removeItem('githubToken');
+                        throw new Error('Invalid token. Please refresh and enter a valid token.');
                     } else {
                         throw new Error('GitHub API error: ' + response.status);
                     }
@@ -1051,9 +1070,9 @@
             renderGallery();
             connectToGitHub();
 
-            console.log('✨ Zanele\'s World ready with hardcoded GitHub integration');
+            console.log('✨ Zanele\'s World ready');
             console.log('📁 Repository: ' + GITHUB_REPO);
-            console.log('🔐 Token configured');
+            console.log('🔐 Token: ' + (GITHUB_TOKEN ? '✅ Configured' : '❌ Not set'));
 
         })();
     </script>
