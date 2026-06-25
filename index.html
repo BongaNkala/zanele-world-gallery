@@ -4,351 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zanele's World · The Ultimate Gallery</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-        /* ================================================================
-           🏆 THE ULTIMATE PREMIUM STYLESHEET - ZANELE'S WORLD
-           ================================================================ */
-
-        /* ----- 1.0 DESIGN SYSTEM - 200+ Custom Properties ----- */
         :root {
-            --color-primary: #0a0604;
-            --color-primary-light: #1a0f0a;
-            --color-primary-dark: #050302;
-            --color-primary-darker: #020101;
-            --gold-100: #f5ede3;
-            --gold-200: #e8d5b8;
-            --gold-300: #dcc29d;
+            --primary: #0a0604;
             --gold-400: #c9a87c;
-            --gold-500: #b8945e;
-            --gold-600: #a88962;
-            --gold-700: #8a6f4a;
-            --gold-800: #6d5540;
-            --gold-900: #4f3d2e;
+            --gold-300: #dcc29d;
+            --cream-200: #e8d5b8;
             --cream-100: #fffcf7;
-            --cream-200: #faf6f0;
-            --cream-300: #f0ebe3;
-            --cream-400: #e5ddd2;
-            --cream-500: #d5ccc0;
             --rose: #d4a089;
-            --rose-light: #e8c8b8;
-            --rose-dark: #b8846d;
-            --rose-darker: #9d6d58;
             --sage: #8fa88a;
-            --sage-light: #b8c9b4;
-            --sage-dark: #6d8a68;
-            --sage-darker: #52704d;
-            --charcoal: #2c2420;
-            --charcoal-light: #4a3d36;
-            --ivory: #f8f4ee;
-            --ivory-dark: #ece6dd;
-            --gradient-gold: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-200) 25%, var(--gold-400) 50%, var(--gold-600) 75%, var(--gold-400) 100%);
-            --gradient-gold-vertical: linear-gradient(180deg, var(--gold-200) 0%, var(--gold-400) 50%, var(--gold-600) 100%);
-            --gradient-dark: linear-gradient(180deg, rgba(10,6,4,0.85) 0%, rgba(26,15,10,0.75) 50%, rgba(10,6,4,0.85) 100%);
-            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 100%);
-            --gradient-glass-strong: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
-            --gradient-rose: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 50%, var(--rose) 100%);
-            --gradient-sage: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 50%, var(--sage) 100%);
-            --gradient-warm: linear-gradient(135deg, #2d1a10 0%, #4a2a1a 50%, #2d1a10 100%);
-            --gradient-cool: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
-            --gradient-aurora: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-sunset: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
-            --gradient-ocean: linear-gradient(135deg, #2b5876 0%, #4e4376 50%, #2b5876 100%);
-            --gradient-forest: linear-gradient(135deg, #134e5e 0%, #71b280 50%, #134e5e 100%);
-            --gradient-fire: linear-gradient(135deg, #f12711 0%, #f5af19 50%, #f12711 100%);
-            --gradient-ice: linear-gradient(135deg, #2193b0 0%, #6dd5ed 50%, #2193b0 100%);
-            --gradient-lavender: linear-gradient(135deg, #2d1b69 0%, #d4145a 50%, #2d1b69 100%);
-            --gradient-rainbow: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 25%, #6bcb77 50%, #4d96ff 75%, #9b59b6 100%);
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --text-xxs: clamp(0.55rem, 0.5vw + 0.4rem, 0.65rem);
-            --text-xs: clamp(0.7rem, 0.65vw + 0.5rem, 0.8rem);
-            --text-sm: clamp(0.8rem, 0.8vw + 0.5rem, 0.95rem);
-            --text-base: clamp(0.95rem, 1vw + 0.5rem, 1.1rem);
-            --text-lg: clamp(1.1rem, 1.2vw + 0.6rem, 1.4rem);
-            --text-xl: clamp(1.4rem, 1.6vw + 0.8rem, 2rem);
-            --text-2xl: clamp(2rem, 2.5vw + 1rem, 3.2rem);
-            --text-3xl: clamp(3.2rem, 4vw + 1.5rem, 5rem);
-            --text-4xl: clamp(5rem, 6vw + 2rem, 8rem);
-            --text-5xl: clamp(8rem, 10vw + 3rem, 12rem);
-            --space-0: 0;
-            --space-025: 0.0625rem;
-            --space-05: 0.125rem;
-            --space-1: 0.25rem;
-            --space-15: 0.375rem;
-            --space-2: 0.5rem;
-            --space-25: 0.625rem;
-            --space-3: 0.75rem;
-            --space-35: 0.875rem;
-            --space-4: 1rem;
-            --space-5: 1.25rem;
-            --space-6: 1.5rem;
-            --space-7: 1.75rem;
-            --space-8: 2rem;
-            --space-9: 2.25rem;
-            --space-10: 2.5rem;
-            --space-11: 2.75rem;
-            --space-12: 3rem;
-            --space-14: 3.5rem;
-            --space-16: 4rem;
-            --space-18: 4.5rem;
-            --space-20: 5rem;
-            --space-24: 6rem;
-            --space-28: 7rem;
-            --space-32: 8rem;
-            --space-36: 9rem;
-            --space-40: 10rem;
-            --space-48: 12rem;
-            --space-56: 14rem;
-            --space-64: 16rem;
-            --space-72: 18rem;
-            --space-80: 20rem;
-            --shadow-xs: 0 1px 2px rgba(10,6,4,0.05);
-            --shadow-sm: 0 2px 8px rgba(10,6,4,0.08);
-            --shadow-md: 0 4px 16px rgba(10,6,4,0.12);
-            --shadow-lg: 0 8px 32px rgba(10,6,4,0.18);
-            --shadow-xl: 0 16px 48px rgba(10,6,4,0.25);
-            --shadow-2xl: 0 24px 64px rgba(10,6,4,0.35);
-            --shadow-3xl: 0 32px 80px rgba(10,6,4,0.45);
-            --shadow-4xl: 0 48px 120px rgba(10,6,4,0.55);
-            --shadow-5xl: 0 64px 160px rgba(10,6,4,0.65);
-            --shadow-glow-gold: 0 0 80px rgba(201,168,124,0.15);
-            --shadow-glow-gold-strong: 0 0 120px rgba(201,168,124,0.25);
-            --shadow-glow-rose: 0 0 80px rgba(212,160,137,0.15);
-            --shadow-glow-sage: 0 0 80px rgba(143,168,138,0.15);
-            --shadow-inner-light: inset 0 2px 4px rgba(255,255,255,0.05);
-            --shadow-inner-dark: inset 0 2px 8px rgba(0,0,0,0.3);
-            --shadow-inner-gold: inset 0 0 30px rgba(201,168,124,0.05);
-            --shadow-neon-gold: 0 0 30px rgba(201,168,124,0.2), 0 0 60px rgba(201,168,124,0.1);
-            --shadow-neon-rose: 0 0 30px rgba(212,160,137,0.2), 0 0 60px rgba(212,160,137,0.1);
-            --radius-xs: 4px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-2xl: 32px;
-            --radius-3xl: 48px;
-            --radius-4xl: 64px;
-            --radius-5xl: 96px;
-            --radius-6xl: 128px;
-            --radius-7xl: 192px;
-            --radius-full: 9999px;
-            --radius-circle: 50%;
-            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-base: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-smooth: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-bounce: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            --transition-elastic: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            --transition-slow: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-slower: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-spring: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            --transition-soft: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
-            --transition-hard: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             --glass-bg: rgba(255,255,255,0.06);
-            --glass-bg-strong: rgba(255,255,255,0.12);
-            --glass-bg-stronger: rgba(255,255,255,0.18);
             --glass-border: rgba(255,255,255,0.08);
-            --glass-border-strong: rgba(255,255,255,0.15);
-            --glass-border-stronger: rgba(255,255,255,0.25);
             --glass-blur: blur(24px);
-            --glass-blur-strong: blur(48px);
-            --glass-blur-stronger: blur(72px);
-            --glass-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            --z-0: 0;
-            --z-1: 1;
-            --z-2: 2;
-            --z-3: 3;
-            --z-4: 4;
-            --z-5: 5;
-            --z-10: 10;
-            --z-20: 20;
-            --z-30: 30;
-            --z-40: 40;
-            --z-50: 50;
-            --z-100: 100;
-            --z-200: 200;
-            --z-500: 500;
-            --z-1000: 1000;
-            --z-2000: 2000;
-            --z-3000: 3000;
-            --z-4000: 4000;
-            --z-5000: 5000;
-            --z-6000: 6000;
-            --z-7000: 7000;
-            --z-8000: 8000;
-            --z-9000: 9000;
-            --z-max: 9999;
-            --duration-fast: 0.3s;
-            --duration-base: 0.6s;
-            --duration-slow: 1s;
-            --duration-slower: 1.5s;
-            --duration-slowest: 2s;
-            --duration-epic: 3s;
-            --duration-legendary: 5s;
-            
-            /* View Mode Variables */
-            --view-thumbnail-columns: 4;
-            --view-thumbnail-gap: 2rem;
-            --view-list-gap: 1rem;
+            --shadow-lg: 0 8px 32px rgba(10,6,4,0.18);
+            --shadow-glow: 0 0 80px rgba(201,168,124,0.15);
+            --gradient-gold: linear-gradient(135deg, #c9a87c 0%, #dcc29d 50%, #b8945e 100%);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* ----- 2.0 RESET & BASE ----- */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-size: 16px;
-            scroll-padding-top: 2rem;
-        }
-
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
         body {
-            font-family: var(--font-body);
-            background: var(--color-primary);
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
             color: var(--cream-200);
             min-height: 100vh;
-            position: relative;
             overflow-x: hidden;
-            line-height: 1.6;
-            cursor: default;
         }
 
-        /* ----- 3.0 BACKGROUND LAYER - FIXED WITH VISIBLE MAZET.JPEG ----- */
+        /* Background & Effects */
         .bg-layer {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: var(--z-0);
-            background: url('Mazet.jpeg') center center / cover no-repeat fixed;
-            filter: brightness(0.5) saturate(0.7) contrast(1.2);
-            transform: scale(1.05);
-        }
-
-        .bg-layer::after {
-            content: '';
-            position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10,6,4,0.4) 0%, rgba(26,15,10,0.3) 50%, rgba(10,6,4,0.4) 100%);
+            z-index: 0;
+            background: url('Mazet.jpeg') center/cover no-repeat fixed;
+            filter: brightness(0.5) saturate(0.7);
+        }
+        .bg-layer::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(10,6,4,0.4), rgba(26,15,10,0.3), rgba(10,6,4,0.4));
             opacity: 0.6;
         }
 
-        .bg-layer::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 30% 20%, rgba(201,168,124,0.12) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
         .vignette {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: var(--z-1);
+            position: fixed; inset: 0; z-index: 1;
+            background: radial-gradient(ellipse, transparent 40%, rgba(0,0,0,0.3));
             pointer-events: none;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.3) 100%);
         }
 
-        /* ----- 4.0 PARTICLES SYSTEM ----- */
         .particles-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: var(--z-1);
-            pointer-events: none;
-            overflow: hidden;
+            position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden;
         }
 
         .particle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleFloat var(--duration-slowest) infinite linear;
+            position: absolute; border-radius: 50%;
             background: var(--gold-400);
-            box-shadow: 0 0 20px rgba(201,168,124,0.3);
-            will-change: transform, opacity;
+            opacity: 0.3;
+            animation: particleFloat var(--duration, 25s) infinite linear;
+            --duration: 25s;
         }
-
-        .particle:nth-child(1) { left: 5%; width: 4px; height: 4px; animation-delay: 0s; animation-duration: 22s; }
-        .particle:nth-child(2) { left: 15%; width: 6px; height: 6px; animation-delay: 2s; animation-duration: 28s; opacity: 0.3; }
-        .particle:nth-child(3) { left: 25%; width: 3px; height: 3px; animation-delay: 4s; animation-duration: 18s; }
-        .particle:nth-child(4) { left: 35%; width: 5px; height: 5px; animation-delay: 6s; animation-duration: 24s; opacity: 0.4; }
-        .particle:nth-child(5) { left: 45%; width: 7px; height: 7px; animation-delay: 8s; animation-duration: 30s; opacity: 0.2; }
-        .particle:nth-child(6) { left: 55%; width: 3px; height: 3px; animation-delay: 10s; animation-duration: 20s; }
-        .particle:nth-child(7) { left: 65%; width: 5px; height: 5px; animation-delay: 12s; animation-duration: 26s; opacity: 0.3; }
-        .particle:nth-child(8) { left: 75%; width: 4px; height: 4px; animation-delay: 14s; animation-duration: 32s; }
-        .particle:nth-child(9) { left: 85%; width: 6px; height: 6px; animation-delay: 16s; animation-duration: 23s; opacity: 0.25; }
-        .particle:nth-child(10) { left: 92%; width: 3px; height: 3px; animation-delay: 18s; animation-duration: 27s; }
-        .particle:nth-child(11) { left: 10%; width: 5px; height: 5px; animation-delay: 1s; animation-duration: 29s; opacity: 0.2; }
-        .particle:nth-child(12) { left: 70%; width: 4px; height: 4px; animation-delay: 5s; animation-duration: 21s; }
-        .particle:nth-child(13) { left: 50%; width: 8px; height: 8px; animation-delay: 7s; animation-duration: 35s; opacity: 0.15; }
-        .particle:nth-child(14) { left: 30%; width: 3px; height: 3px; animation-delay: 11s; animation-duration: 16s; }
-        .particle:nth-child(15) { left: 80%; width: 5px; height: 5px; animation-delay: 13s; animation-duration: 25s; opacity: 0.35; }
-        .particle:nth-child(16) { left: 60%; width: 4px; height: 4px; animation-delay: 3s; animation-duration: 19s; }
-        .particle:nth-child(17) { left: 20%; width: 6px; height: 6px; animation-delay: 9s; animation-duration: 33s; opacity: 0.25; }
-        .particle:nth-child(18) { left: 88%; width: 3px; height: 3px; animation-delay: 15s; animation-duration: 31s; }
-        .particle:nth-child(19) { left: 42%; width: 5px; height: 5px; animation-delay: 4s; animation-duration: 27s; opacity: 0.3; }
-        .particle:nth-child(20) { left: 78%; width: 4px; height: 4px; animation-delay: 8s; animation-duration: 24s; }
 
         @keyframes particleFloat {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
-            10% { opacity: 0.6; transform: translateY(90vh) rotate(36deg) scale(1); }
-            90% { opacity: 0.6; transform: translateY(10vh) rotate(324deg) scale(1); }
-            100% { transform: translateY(-10vh) rotate(360deg) scale(0); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        /* ----- 5.0 SCROLLBAR ----- */
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { 
-            background: var(--color-primary-dark);
-            border-left: 1px solid rgba(201,168,124,0.05);
-        }
+        ::-webkit-scrollbar-track { background: rgba(10,6,4,0.5); }
         ::-webkit-scrollbar-thumb {
-            background: var(--gradient-gold-vertical);
-            border-radius: var(--radius-full);
-            border: 2px solid var(--color-primary-dark);
-            transition: var(--transition-smooth);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(201,168,124,0.3);
-        }
-        ::-webkit-scrollbar-corner {
-            background: var(--color-primary-dark);
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            border: 2px solid var(--primary);
         }
 
-        /* ----- 6.0 MAIN CONTAINER ----- */
+        /* Main Container */
         .gallery-wrapper {
             position: relative;
-            z-index: var(--z-10);
+            z-index: 10;
             max-width: 1440px;
-            width: 100%;
             margin: 0 auto;
-            padding: var(--space-8) var(--space-6) var(--space-16);
+            padding: 2rem 1.5rem 4rem;
         }
 
-        /* ----- 7.0 HEADER ----- */
+        /* Header */
         .brand {
             display: flex;
-            align-items: baseline;
             justify-content: space-between;
+            align-items: baseline;
             flex-wrap: wrap;
-            margin-bottom: var(--space-12);
-            padding-bottom: var(--space-6);
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(201,168,124,0.08);
             position: relative;
         }
@@ -361,7 +113,7 @@
             width: 180px;
             height: 3px;
             background: var(--gradient-gold);
-            border-radius: var(--radius-full);
+            border-radius: 10px;
             box-shadow: 0 0 40px rgba(201,168,124,0.3);
             animation: brandGlow 3s ease-in-out infinite;
         }
@@ -372,249 +124,149 @@
         }
 
         .brand h1 {
-            font-family: var(--font-display);
-            font-size: var(--text-3xl);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 700;
             background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -0.02em;
-            position: relative;
-            text-shadow: 0 0 80px rgba(201,168,124,0.1);
         }
 
-        .brand h1::before {
-            content: '✦';
-            position: absolute;
-            left: -2.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
-            color: var(--gold-400);
-            opacity: 0.3;
-            -webkit-text-fill-color: initial;
-            animation: starPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes starPulse {
-            0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
-            50% { opacity: 0.6; transform: translateY(-50%) scale(1.3); }
-        }
-
-        .brand h1 i {
-            -webkit-text-fill-color: initial;
-            color: var(--gold-400);
-            margin-right: var(--space-3);
-            filter: drop-shadow(0 0 30px rgba(201,168,124,0.2));
-        }
+        .brand h1 i { margin-right: 0.75rem; -webkit-text-fill-color: var(--gold-400); }
 
         .brand .sub {
-            font-family: var(--font-display);
+            font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--gold-300);
-            font-size: var(--text-base);
+            font-size: 1rem;
             background: rgba(201,168,124,0.05);
-            padding: var(--space-3) var(--space-6);
-            border-radius: var(--radius-full);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
             border: 1px solid rgba(201,168,124,0.08);
             backdrop-filter: var(--glass-blur);
             letter-spacing: 0.05em;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
 
         .brand .sub:hover {
             background: rgba(201,168,124,0.1);
             border-color: rgba(201,168,124,0.2);
-            box-shadow: var(--shadow-glow-gold);
             transform: translateY(-2px);
         }
 
-        /* ----- 8.0 STATUS BAR ----- */
+        /* Status Bar - Compact */
         .status-bar {
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-4) var(--space-8);
-            margin-bottom: var(--space-10);
+            border-radius: 1.5rem;
+            padding: 1rem 2rem;
+            margin-bottom: 2.5rem;
             display: flex;
             align-items: center;
-            gap: var(--space-4);
+            gap: 1rem;
             flex-wrap: wrap;
-            box-shadow: var(--shadow-xl), var(--shadow-glow-gold);
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .status-bar::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: var(--radius-2xl);
-            padding: 1px;
-            background: var(--gradient-gold);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0.3;
-            animation: borderGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
 
         .status-bar .status-icon {
-            font-size: var(--text-xl);
+            font-size: 1.4rem;
             color: var(--gold-400);
-            position: relative;
-            z-index: var(--z-1);
-            animation: pulseIcon 2s ease-in-out infinite;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulseIcon {
+        @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.1); opacity: 0.7; }
         }
 
         .status-bar .status-text {
             font-weight: 500;
-            font-size: var(--text-base);
             color: var(--cream-200);
-            position: relative;
-            z-index: var(--z-1);
-            letter-spacing: 0.02em;
+            flex: 1;
         }
 
-        .status-bar .repo-info {
+        .status-bar .repo-info,
+        .status-bar .status-right {
+            font-size: 0.85rem;
             background: rgba(201,168,124,0.08);
-            padding: var(--space-2) var(--space-4);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(201,168,124,0.06);
             color: var(--gold-300);
             font-weight: 600;
-            border: 1px solid rgba(201,168,124,0.06);
-            position: relative;
-            z-index: var(--z-1);
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            transition: var(--transition-fast);
+            transition: var(--transition);
         }
 
         .status-bar .repo-info:hover {
             background: rgba(201,168,124,0.15);
-            border-color: rgba(201,168,124,0.15);
             transform: translateY(-1px);
         }
 
         .status-bar .status-right {
             margin-left: auto;
-            font-size: var(--text-xs);
-            color: var(--gold-300);
-            opacity: 0.6;
-            position: relative;
-            z-index: var(--z-1);
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
             font-weight: 300;
+            opacity: 0.7;
         }
 
-        .status-bar .status-right i {
-            color: var(--gold-400);
-            font-size: var(--text-sm);
-        }
+        .status-bar i { margin-right: 0.5rem; color: var(--gold-400); }
 
-        /* ----- 9.0 VIEW TOGGLE ----- */
+        /* View Toggle */
         .view-toggle {
             display: flex;
-            align-items: center;
-            gap: var(--space-3);
+            gap: 0.5rem;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
-            padding: var(--space-1) var(--space-2);
-            border-radius: var(--radius-full);
+            padding: 0.25rem;
+            border-radius: 20px;
             border: 1px solid var(--glass-border);
         }
 
-        .view-toggle .toggle-btn {
-            background: transparent;
+        .toggle-btn {
+            background: none;
             border: none;
             color: rgba(255,255,255,0.4);
-            padding: var(--space-2) var(--space-3);
-            border-radius: var(--radius-full);
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
             cursor: pointer;
-            transition: var(--transition-smooth);
-            font-size: var(--text-sm);
+            transition: var(--transition);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: var(--space-1);
+            gap: 0.25rem;
         }
 
-        .view-toggle .toggle-btn:hover {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .view-toggle .toggle-btn.active {
+        .toggle-btn:hover { color: rgba(255,255,255,0.7); }
+        .toggle-btn.active {
             background: var(--gradient-gold);
-            color: var(--color-primary);
+            color: var(--primary);
             box-shadow: 0 2px 12px rgba(201,168,124,0.3);
         }
 
-        .view-toggle .toggle-btn i {
-            font-size: var(--text-base);
-        }
-
-        /* ----- 10.0 UPLOAD CARD ----- */
+        /* Upload Card */
         .upload-card {
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-10) var(--space-12);
-            margin-bottom: var(--space-16);
-            box-shadow: var(--shadow-xl), var(--shadow-glow-gold);
-            transition: var(--transition-smooth);
+            border-radius: 2rem;
+            padding: 2.5rem 3rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            transition: var(--transition);
             position: relative;
-            overflow: hidden;
-        }
-
-        .upload-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius-3xl);
-            padding: 1px;
-            background: var(--gradient-gold);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0.2;
-        }
-
-        .upload-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 60%;
-            height: 100%;
-            background: radial-gradient(ellipse, rgba(201,168,124,0.03) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .upload-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-2xl), var(--shadow-glow-gold-strong);
+            box-shadow: 0 16px 48px rgba(10,6,4,0.25), var(--shadow-glow);
             border-color: rgba(201,168,124,0.12);
         }
 
@@ -622,112 +274,87 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: var(--space-6) var(--space-10);
-            position: relative;
-            z-index: var(--z-1);
+            gap: 1.5rem 2.5rem;
         }
 
         .file-input-wrapper {
-            flex: 2 1 300px;
             display: flex;
             align-items: center;
-            gap: var(--space-4);
-            flex-wrap: wrap;
+            gap: 1rem;
+            flex: 1 1 300px;
         }
 
         .file-input-wrapper label {
             background: var(--gradient-gold);
-            padding: var(--space-4) var(--space-8);
-            border-radius: var(--radius-full);
+            padding: 1rem 2rem;
+            border-radius: 20px;
             font-weight: 700;
-            color: var(--color-primary);
+            color: var(--primary);
             cursor: pointer;
-            transition: var(--transition-bounce);
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: var(--space-3);
-            font-size: var(--text-base);
+            gap: 0.75rem;
+            font-size: 1rem;
             box-shadow: 0 4px 30px rgba(201,168,124,0.3);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.02em;
+            white-space: nowrap;
         }
 
         .file-input-wrapper label::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent 50%);
             opacity: 0;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
 
-        .file-input-wrapper label:hover::before {
-            opacity: 1;
-        }
-
+        .file-input-wrapper label:hover::before { opacity: 1; }
         .file-input-wrapper label:hover {
             transform: scale(1.05) translateY(-3px);
             box-shadow: 0 8px 40px rgba(201,168,124,0.4);
         }
 
-        .file-input-wrapper label:active {
-            transform: scale(0.95);
-        }
+        .file-input-wrapper label i { font-size: 1.25rem; }
 
-        .file-input-wrapper label i {
-            font-size: var(--text-xl);
-            transition: var(--transition-smooth);
-        }
-
-        .file-input-wrapper label:hover i {
-            transform: rotate(-10deg) scale(1.1);
-        }
-
-        #fileInput {
-            display: none;
-        }
+        #fileInput { display: none; }
 
         .file-name {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: var(--gold-300);
             background: rgba(255,255,255,0.03);
-            padding: var(--space-2) var(--space-4);
-            border-radius: var(--radius-full);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             border: 1px solid rgba(201,168,124,0.06);
             max-width: 240px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-weight: 400;
-            transition: var(--transition-fast);
-        }
-
-        .file-name:hover {
-            border-color: rgba(201,168,124,0.15);
-            background: rgba(255,255,255,0.06);
+            transition: var(--transition);
         }
 
         .upload-actions {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: var(--space-4) var(--space-6);
+            gap: 1rem;
             margin-left: auto;
         }
 
-        /* ----- 11.0 BUTTONS ----- */
+        /* Buttons */
         .btn {
             border: none;
-            padding: var(--space-4) var(--space-8);
-            border-radius: var(--radius-full);
+            padding: 1rem 2rem;
+            border-radius: 20px;
             font-weight: 700;
-            font-size: var(--text-base);
+            font-size: 1rem;
             cursor: pointer;
-            transition: var(--transition-bounce);
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: 0.75rem;
             position: relative;
             overflow: hidden;
             letter-spacing: 0.03em;
@@ -737,18 +364,16 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 50%);
             opacity: 0;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
 
-        .btn:hover::before {
-            opacity: 1;
-        }
+        .btn:hover::before { opacity: 1; }
 
         .btn-success {
             background: var(--gradient-gold);
-            color: var(--color-primary);
+            color: var(--primary);
             box-shadow: 0 4px 30px rgba(201,168,124,0.3);
         }
 
@@ -760,7 +385,6 @@
         .btn-success:disabled {
             opacity: 0.4;
             cursor: not-allowed;
-            transform: none;
         }
 
         .btn-outline {
@@ -773,35 +397,21 @@
             background: rgba(201,168,124,0.06);
             border-color: var(--gold-400);
             transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 4px 30px rgba(201,168,124,0.1);
         }
 
-        .btn i {
-            font-size: var(--text-lg);
-            transition: var(--transition-smooth);
-        }
-
-        .btn:hover i {
-            transform: rotate(-8deg) scale(1.1);
-        }
-
-        /* ----- 12.0 PROGRESS BAR ----- */
+        /* Progress Bar */
         .progress-container {
-            margin-top: var(--space-6);
+            margin-top: 1.5rem;
             display: none;
             align-items: center;
-            gap: var(--space-4);
-            padding: var(--space-3) 0;
-            position: relative;
-            z-index: var(--z-1);
+            gap: 1rem;
+            opacity: 0;
+            animation: progressIn 0.6s ease forwards;
         }
 
-        .progress-container.active {
-            display: flex;
-            animation: progressFadeIn 0.6s ease;
-        }
+        .progress-container.active { display: flex; }
 
-        @keyframes progressFadeIn {
+        @keyframes progressIn {
             from { opacity: 0; transform: translateY(20px) scale(0.98); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
@@ -810,72 +420,35 @@
             flex: 1;
             height: 6px;
             background: rgba(255,255,255,0.06);
-            border-radius: var(--radius-full);
+            border-radius: 10px;
             overflow: hidden;
             min-width: 160px;
-            box-shadow: var(--shadow-inner-dark);
-            position: relative;
-        }
-
-        .progress-track::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(201,168,124,0.05), transparent);
-            animation: shimmerTrack 2s infinite;
-        }
-
-        @keyframes shimmerTrack {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .progress-fill {
             height: 100%;
             width: 0%;
             background: var(--gradient-gold);
-            border-radius: var(--radius-full);
+            border-radius: 10px;
             transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 0 30px rgba(201,168,124,0.3);
-            position: relative;
-        }
-
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: progressShimmer 1.2s infinite;
-        }
-
-        @keyframes progressShimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
 
         .progress-label {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             color: var(--gold-300);
             font-weight: 600;
             min-width: 72px;
-            font-variant-numeric: tabular-nums;
-            letter-spacing: 0.05em;
-        }
-
-        .progress-icon {
-            color: var(--gold-400);
-            font-size: var(--text-xl);
         }
 
         .upload-hint {
-            margin-top: var(--space-4);
-            font-size: var(--text-xs);
+            margin-top: 1rem;
+            font-size: 0.8rem;
             color: rgba(255,255,255,0.25);
             display: flex;
-            gap: var(--space-6);
+            gap: 1.5rem;
             flex-wrap: wrap;
-            position: relative;
-            z-index: var(--z-1);
             letter-spacing: 0.08em;
             text-transform: uppercase;
             font-weight: 300;
@@ -884,65 +457,47 @@
         .upload-hint span {
             display: flex;
             align-items: center;
-            gap: var(--space-2);
-            transition: var(--transition-fast);
+            gap: 0.5rem;
+            transition: var(--transition);
         }
 
-        .upload-hint span:hover {
-            color: rgba(255,255,255,0.4);
-        }
+        .upload-hint i { color: var(--gold-400); font-size: 0.85rem; opacity: 0.5; }
 
-        .upload-hint i {
-            color: var(--gold-400);
-            font-size: var(--text-sm);
-            opacity: 0.5;
-        }
-
-        /* ----- 13.0 GALLERY HEADER ----- */
+        /* Gallery Header */
         .gallery-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            margin: var(--space-10) 0 var(--space-6);
-            padding-bottom: var(--space-4);
+            gap: 1rem;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid rgba(201,168,124,0.05);
         }
 
-        .gallery-header-left {
-            display: flex;
-            align-items: center;
-            gap: var(--space-4);
-            flex-wrap: wrap;
-        }
-
         .gallery-header h2 {
-            font-family: var(--font-display);
+            font-family: 'Playfair Display', serif;
             font-weight: 400;
-            font-size: var(--text-2xl);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
             color: var(--cream-200);
             letter-spacing: 0.02em;
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: 0.75rem;
         }
 
-        .gallery-header h2 i {
-            color: var(--gold-400);
-            font-size: var(--text-xl);
-            opacity: 0.6;
-        }
+        .gallery-header h2 i { color: var(--gold-400); opacity: 0.6; }
 
         .gallery-counter {
             background: rgba(201,168,124,0.06);
-            padding: var(--space-2) var(--space-5);
-            border-radius: var(--radius-full);
-            font-size: var(--text-sm);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
             color: var(--gold-300);
             border: 1px solid rgba(201,168,124,0.05);
             font-weight: 500;
             letter-spacing: 0.05em;
-            transition: var(--transition-fast);
+            transition: var(--transition);
         }
 
         .gallery-counter:hover {
@@ -950,219 +505,122 @@
             border-color: rgba(201,168,124,0.1);
         }
 
-        /* ----- 14.0 GALLERY GRID - THUMBNAIL VIEW (Default) ----- */
-        .gallery-grid.thumbnail-view {
+        /* Gallery Grid - Thumbnail View */
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: var(--space-6);
-            margin-top: var(--space-4);
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
-        .gallery-grid.thumbnail-view .media-card {
+        .gallery-grid.list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            grid-template-columns: unset;
+        }
+
+        .media-card {
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
+            border-radius: 1.5rem;
             overflow: hidden;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
             box-shadow: var(--shadow-lg);
             position: relative;
             cursor: pointer;
             will-change: transform;
         }
 
-        .gallery-grid.thumbnail-view .media-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius-2xl);
-            padding: 1px;
-            background: var(--gradient-gold);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-grid.thumbnail-view .media-card:hover::before {
-            opacity: 0.3;
-        }
-
-        .gallery-grid.thumbnail-view .media-card:hover {
+        .media-card:hover {
             transform: translateY(-8px) scale(1.01);
-            box-shadow: var(--shadow-2xl), var(--shadow-glow-gold);
+            box-shadow: 0 16px 48px rgba(10,6,4,0.25), var(--shadow-glow);
             border-color: rgba(201,168,124,0.15);
         }
 
-        .gallery-grid.thumbnail-view .media-preview {
+        .gallery-grid.list-view .media-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            min-height: 80px;
+            transform: none;
+        }
+
+        .gallery-grid.list-view .media-card:hover { transform: translateX(4px); }
+
+        .media-preview {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 1;
             background: rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
-        }
-
-        .gallery-grid.thumbnail-view .media-preview img,
-        .gallery-grid.thumbnail-view .media-preview video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: var(--transition-slow);
-        }
-
-        .gallery-grid.thumbnail-view .media-card:hover .media-preview img,
-        .gallery-grid.thumbnail-view .media-card:hover .media-preview video {
-            transform: scale(1.05);
-        }
-
-        .gallery-grid.thumbnail-view .media-preview i {
-            font-size: 3.5rem;
-            color: rgba(201,168,124,0.2);
-        }
-
-        /* ----- 15.0 GALLERY GRID - LIST VIEW ----- */
-        .gallery-grid.list-view {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-4);
-            margin-top: var(--space-4);
-        }
-
-        .gallery-grid.list-view .media-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: var(--space-4);
-            padding: var(--space-3);
-            cursor: pointer;
-            will-change: transform;
-            min-height: 80px;
-        }
-
-        .gallery-grid.list-view .media-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius-xl);
-            padding: 1px;
-            background: var(--gradient-gold);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-grid.list-view .media-card:hover::before {
-            opacity: 0.3;
-        }
-
-        .gallery-grid.list-view .media-card:hover {
-            transform: translateX(4px);
-            box-shadow: var(--shadow-2xl), var(--shadow-glow-gold);
-            border-color: rgba(201,168,124,0.15);
         }
 
         .gallery-grid.list-view .media-preview {
             width: 80px;
             min-width: 80px;
-            height: 80px;
-            aspect-ratio: 1 / 1;
-            background: rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            border-radius: var(--radius-md);
+            aspect-ratio: 1;
+            border-radius: 0.75rem;
             flex-shrink: 0;
         }
 
-        .gallery-grid.list-view .media-preview img,
-        .gallery-grid.list-view .media-preview video {
+        .media-preview img,
+        .media-preview video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: var(--transition-slow);
+            transition: var(--transition);
         }
 
-        .gallery-grid.list-view .media-card:hover .media-preview img,
-        .gallery-grid.list-view .media-card:hover .media-preview video {
-            transform: scale(1.05);
-        }
+        .media-card:hover .media-preview img,
+        .media-card:hover .media-preview video { transform: scale(1.05); }
 
-        .gallery-grid.list-view .media-preview i {
-            font-size: 2rem;
-            color: rgba(201,168,124,0.2);
-        }
+        .media-preview i { font-size: 3.5rem; color: rgba(201,168,124,0.2); }
 
-        .gallery-grid.list-view .media-info {
-            flex: 1;
-            padding: var(--space-2) var(--space-4);
+        .media-info {
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: transparent;
         }
 
-        .gallery-grid.list-view .media-info .media-details {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-1);
+        .gallery-grid.list-view .media-info {
+            flex: 1;
+            padding: 0.5rem 1rem;
         }
 
-        .gallery-grid.list-view .media-info .media-name {
-            font-size: var(--text-sm);
-            font-weight: 500;
-            color: var(--cream-200);
-        }
+        .media-details { display: flex; flex-direction: column; gap: 0.25rem; }
+        .media-name { font-size: 0.9rem; font-weight: 500; color: var(--cream-200); }
+        .media-meta { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
 
-        .gallery-grid.list-view .media-info .media-meta {
-            font-size: var(--text-xs);
-            color: rgba(255,255,255,0.4);
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-        }
-
-        .gallery-grid.list-view .media-type-badge {
-            font-size: var(--text-xs);
+        .media-type-badge {
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             background: rgba(201,168,124,0.04);
-            padding: var(--space-1) var(--space-3);
-            border-radius: var(--radius-full);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
             color: var(--gold-300);
             font-weight: 600;
             border: 1px solid rgba(201,168,124,0.04);
         }
 
-        .gallery-grid.list-view .delete-btn {
-            background: transparent;
+        .delete-btn {
+            background: none;
             border: none;
             color: rgba(255,255,255,0.15);
-            font-size: var(--text-xl);
+            font-size: 1.25rem;
             cursor: pointer;
-            padding: var(--space-2);
-            transition: var(--transition-smooth);
-            border-radius: var(--radius-full);
+            padding: 0.5rem;
+            transition: var(--transition);
+            border-radius: 50%;
             width: 36px;
             height: 36px;
             display: flex;
@@ -1171,137 +629,101 @@
             flex-shrink: 0;
         }
 
-        .gallery-grid.list-view .delete-btn:hover {
+        .delete-btn:hover {
             color: var(--rose);
             background: rgba(212,160,137,0.1);
             transform: rotate(90deg) scale(1.1);
         }
 
-        .gallery-grid.list-view .github-saved {
+        .github-saved {
             position: absolute;
-            top: var(--space-2);
-            right: var(--space-2);
+            top: 0.5rem;
+            right: 0.5rem;
             background: rgba(201,168,124,0.9);
-            color: var(--color-primary);
-            font-size: var(--text-xs);
-            padding: var(--space-1) var(--space-3);
-            border-radius: var(--radius-full);
+            color: var(--primary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
             font-weight: 700;
             display: none;
             box-shadow: var(--shadow-lg);
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .gallery-grid.list-view .github-saved.show {
+        .github-saved.show {
             display: block;
             animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* Common Media Card Styles */
-        .media-card {
-            position: relative;
-        }
-
-        .media-preview .overlay-gradient {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);
-            opacity: 0;
-            transition: var(--transition-smooth);
-            pointer-events: none;
-        }
-
-        .media-card:hover .overlay-gradient {
-            opacity: 1;
-        }
-
         @keyframes badgePop {
             from { transform: scale(0) rotate(-20deg); opacity: 0; }
-            to { transform: scale(1) rotate(0deg); opacity: 1; }
+            to { transform: scale(1) rotate(0); opacity: 1; }
         }
 
-        .github-saved i {
-            margin-right: var(--space-1);
-            font-size: var(--text-xs);
-        }
-
-        /* ----- 16.0 EMPTY STATE ----- */
+        /* Empty State */
         .empty-gallery {
             grid-column: 1 / -1;
             text-align: center;
-            padding: var(--space-20) var(--space-8);
+            padding: 5rem 2rem;
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border: 2px dashed rgba(201,168,124,0.06);
-            border-radius: var(--radius-3xl);
+            border-radius: 2rem;
             color: rgba(255,255,255,0.35);
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
 
         .empty-gallery:hover {
             border-color: rgba(201,168,124,0.1);
-            background: var(--glass-bg-strong);
+            background: rgba(255,255,255,0.08);
         }
 
         .empty-gallery i {
-            font-size: var(--text-4xl);
+            font-size: 5rem;
             color: var(--gold-400);
             opacity: 0.15;
-            margin-bottom: var(--space-6);
+            margin-bottom: 1.5rem;
             display: block;
             animation: emptyFloat 6s ease-in-out infinite;
         }
 
         @keyframes emptyFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        .empty-gallery p {
-            font-size: var(--text-xl);
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-
+        .empty-gallery p { font-size: 1.4rem; font-weight: 300; letter-spacing: 0.02em; }
         .empty-gallery .sub-text {
-            font-size: var(--text-base);
+            font-size: 1rem;
             color: rgba(201,168,124,0.2);
             display: block;
-            margin-top: var(--space-3);
+            margin-top: 0.75rem;
             font-style: italic;
-            font-family: var(--font-display);
+            font-family: 'Playfair Display', serif;
         }
 
-        /* ----- 17.0 TOAST ----- */
+        /* Toast */
         .toast {
             position: fixed;
-            bottom: var(--space-10);
-            right: var(--space-10);
-            padding: var(--space-5) var(--space-8);
-            border-radius: var(--radius-2xl);
-            color: var(--color-primary);
+            bottom: 2.5rem;
+            right: 2.5rem;
+            padding: 1.25rem 2rem;
+            border-radius: 1.5rem;
             font-weight: 600;
-            box-shadow: var(--shadow-2xl), var(--shadow-glow-gold);
+            box-shadow: 0 24px 64px rgba(10,6,4,0.35);
             transform: translateY(120px) scale(0.9);
             opacity: 0;
             transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: var(--z-5000);
+            z-index: 5000;
             max-width: 440px;
-            font-size: var(--text-base);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
-            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: var(--space-4);
+            gap: 1rem;
             letter-spacing: 0.02em;
+            backdrop-filter: var(--glass-blur);
         }
 
         .toast.show {
@@ -1309,39 +731,22 @@
             opacity: 1;
         }
 
-        .toast i {
-            font-size: var(--text-xl);
-            flex-shrink: 0;
-        }
+        .toast i { font-size: 1.25rem; flex-shrink: 0; }
+        .toast.success { background: linear-gradient(135deg, #d4edda, #c3e6cb); color: #155724; }
+        .toast.error { background: linear-gradient(135deg, #f8d7da, #f5c6cb); color: #721c24; }
+        .toast.info { background: linear-gradient(135deg, #d1ecf1, #bee5eb); color: #0c5460; }
 
-        .toast.success {
-            background: linear-gradient(135deg, #d4edda, #c3e6cb);
-            color: #155724;
-        }
-        .toast.error {
-            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
-            color: #721c24;
-        }
-        .toast.info {
-            background: linear-gradient(135deg, #d1ecf1, #bee5eb);
-            color: #0c5460;
-        }
-        .toast.warning {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            color: #856404;
-        }
-
-        .toast .toast-close {
+        .toast-close {
             background: none;
             border: none;
-            font-size: var(--text-xl);
+            font-size: 1.25rem;
             cursor: pointer;
             opacity: 0.3;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
             color: inherit;
-            padding: var(--space-1);
+            padding: 0.25rem;
             margin-left: auto;
-            border-radius: var(--radius-full);
+            border-radius: 50%;
             width: 32px;
             height: 32px;
             display: flex;
@@ -1349,43 +754,34 @@
             justify-content: center;
         }
 
-        .toast .toast-close:hover {
-            opacity: 1;
-            background: rgba(0,0,0,0.05);
-            transform: rotate(90deg);
-        }
+        .toast-close:hover { opacity: 1; background: rgba(0,0,0,0.05); transform: rotate(90deg); }
 
-        /* ----- 18.0 CONFIRM DIALOG ----- */
+        /* Confirm Dialog */
         .confirm-dialog {
             position: fixed;
             inset: 0;
             background: rgba(10,6,4,0.85);
-            backdrop-filter: var(--glass-blur-strong);
-            -webkit-backdrop-filter: var(--glass-blur-strong);
-            z-index: var(--z-4000);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            z-index: 4000;
             display: none;
             align-items: center;
             justify-content: center;
             animation: dialogFade 0.4s ease;
         }
 
-        .confirm-dialog.active {
-            display: flex;
-        }
+        .confirm-dialog.active { display: flex; }
 
-        @keyframes dialogFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes dialogFade { from { opacity: 0; } to { opacity: 1; } }
 
-        .confirm-dialog .dialog-box {
+        .dialog-box {
             background: linear-gradient(145deg, rgba(26,15,10,0.98), rgba(10,6,4,0.99));
             border: 1px solid rgba(201,168,124,0.1);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-10) var(--space-12);
+            border-radius: 2rem;
+            padding: 2.5rem 3rem;
             max-width: 500px;
             width: 90%;
-            box-shadow: var(--shadow-3xl), var(--shadow-glow-gold);
+            box-shadow: 0 32px 80px rgba(10,6,4,0.45), var(--shadow-glow);
             animation: dialogSlide 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-align: center;
         }
@@ -1395,1099 +791,482 @@
             to { transform: translateY(0) scale(1); opacity: 1; }
         }
 
-        .confirm-dialog .dialog-box i {
-            font-size: var(--text-3xl);
-            color: var(--gold-400);
-            margin-bottom: var(--space-4);
-            display: block;
-        }
-
-        .confirm-dialog .dialog-box h3 {
-            font-family: var(--font-display);
-            font-size: var(--text-xl);
+        .dialog-box i { font-size: 3.2rem; color: var(--gold-400); margin-bottom: 1rem; display: block; }
+        .dialog-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             font-weight: 400;
             color: var(--cream-200);
-            margin-bottom: var(--space-3);
+            margin-bottom: 0.75rem;
             letter-spacing: 0.02em;
         }
-
-        .confirm-dialog .dialog-box p {
+        .dialog-box p {
             color: rgba(255,255,255,0.4);
-            margin-bottom: var(--space-8);
+            margin-bottom: 2rem;
             font-weight: 300;
             line-height: 1.7;
         }
 
-        .confirm-dialog .dialog-actions {
+        .dialog-actions {
             display: flex;
-            gap: var(--space-4);
+            gap: 1rem;
             justify-content: center;
         }
 
-        .confirm-dialog .dialog-actions .btn {
-            min-width: 120px;
-            justify-content: center;
-        }
+        .dialog-actions .btn { min-width: 120px; justify-content: center; }
 
-        /* ----- 19.0 RESPONSIVE ----- */
+        /* Responsive */
         @media (max-width: 1200px) {
-            .gallery-grid.thumbnail-view { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-        }
-
-        @media (max-width: 992px) {
-            .brand h1 { font-size: var(--text-2xl); }
-            .upload-card { padding: var(--space-8); }
-            .gallery-grid.thumbnail-view { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
-            .status-bar { padding: var(--space-4) var(--space-6); }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
         }
 
         @media (max-width: 768px) {
-            .gallery-wrapper { padding: var(--space-4); }
-            .brand { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
-            .brand h1::before { display: none; }
-            .upload-grid { flex-direction: column; align-items: stretch; }
-            .upload-actions { margin-left: 0; justify-content: stretch; }
-            .upload-actions .btn { flex: 1; justify-content: center; }
+            .gallery-wrapper { padding: 1rem; }
+            .brand { flex-direction: column; align-items: flex-start; }
+            .upload-grid { flex-direction: column; }
+            .upload-actions { margin-left: 0; width: 100%; }
+            .upload-actions .btn { flex: 1; }
             .file-input-wrapper { width: 100%; }
             .file-input-wrapper label { width: 100%; justify-content: center; }
-            .status-bar { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+            .status-bar { flex-direction: column; align-items: flex-start; }
             .status-bar .status-right { margin-left: 0; }
-            .gallery-grid.thumbnail-view { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-4); }
-            .gallery-grid.list-view .media-preview { width: 60px; min-width: 60px; height: 60px; }
-            .gallery-grid.list-view .media-info .media-name { font-size: var(--text-xs); }
-            .toast { right: var(--space-4); left: var(--space-4); max-width: none; bottom: var(--space-4); }
-            .confirm-dialog .dialog-box { padding: var(--space-6); }
-            .view-toggle .toggle-btn span { display: none; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+            .gallery-grid.list-view .media-preview { width: 60px; height: 60px; }
+            .toggle-btn span { display: none; }
+            .toast { right: 1rem; left: 1rem; max-width: none; bottom: 1rem; }
+            .dialog-box { padding: 1.5rem; }
         }
 
         @media (max-width: 480px) {
-            .gallery-grid.thumbnail-view { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--space-3); }
-            .brand h1 { font-size: var(--text-xl); }
-            .upload-card { padding: var(--space-4); }
-            .file-input-wrapper label { font-size: var(--text-sm); padding: var(--space-3) var(--space-4); }
-            .btn { font-size: var(--text-sm); padding: var(--space-3) var(--space-4); }
-            .gallery-header h2 { font-size: var(--text-xl); }
-            .gallery-counter { font-size: var(--text-xs); padding: var(--space-1) var(--space-3); }
-            .toast { padding: var(--space-4); font-size: var(--text-sm); }
-            .confirm-dialog .dialog-box { padding: var(--space-4); }
-            .gallery-grid.list-view .media-preview { width: 50px; min-width: 50px; height: 50px; }
-            .gallery-grid.list-view .media-info { padding: var(--space-1) var(--space-2); }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .brand h1 { font-size: 1.4rem; }
+            .upload-card { padding: 1rem; }
+            .file-input-wrapper label { font-size: 0.9rem; }
+            .btn { font-size: 0.9rem; padding: 0.75rem 1rem; }
+            .gallery-header h2 { font-size: 1.25rem; }
+            .dialog-box { padding: 1rem; }
         }
 
-        /* ----- 20.0 ANIMATIONS & UTILITIES ----- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease;
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .scale-in {
-            animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .glow-text {
-            text-shadow: 0 0 60px rgba(201,168,124,0.05);
-        }
-
-        .text-gold { color: var(--gold-400); }
-        .text-rose { color: var(--rose); }
-        .text-sage { color: var(--sage); }
-
-        .bg-gold-gradient { background: var(--gradient-gold); }
-        .bg-rose-gradient { background: var(--gradient-rose); }
-        .bg-sage-gradient { background: var(--gradient-sage); }
-
-        .spinner-premium {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            border: 3px solid rgba(201,168,124,0.08);
-            border-top: 3px solid var(--gold-400);
-            border-radius: 50%;
-            animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ----- 21.0 EXTRA UTILITIES ----- */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
+        /* Utilities */
         .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-
         .flex { display: flex; }
-        .flex-center { display: flex; align-items: center; justify-content: center; }
-        .flex-between { display: flex; align-items: center; justify-content: space-between; }
-        .flex-column { display: flex; flex-direction: column; }
         .flex-wrap { flex-wrap: wrap; }
-
-        .gap-1 { gap: var(--space-1); }
-        .gap-2 { gap: var(--space-2); }
-        .gap-3 { gap: var(--space-3); }
-        .gap-4 { gap: var(--space-4); }
-        .gap-5 { gap: var(--space-5); }
-        .gap-6 { gap: var(--space-6); }
-
-        .mt-1 { margin-top: var(--space-1); }
-        .mt-2 { margin-top: var(--space-2); }
-        .mt-3 { margin-top: var(--space-3); }
-        .mt-4 { margin-top: var(--space-4); }
-        .mt-5 { margin-top: var(--space-5); }
-        .mt-6 { margin-top: var(--space-6); }
-
-        .mb-1 { margin-bottom: var(--space-1); }
-        .mb-2 { margin-bottom: var(--space-2); }
-        .mb-3 { margin-bottom: var(--space-3); }
-        .mb-4 { margin-bottom: var(--space-4); }
-        .mb-5 { margin-bottom: var(--space-5); }
-        .mb-6 { margin-bottom: var(--space-6); }
-
-        .w-full { width: 100%; }
-        .h-full { height: 100%; }
-
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .fixed { position: fixed; }
-
-        .overflow-hidden { overflow: hidden; }
-        .overflow-auto { overflow: auto; }
-
-        .cursor-pointer { cursor: pointer; }
-        .cursor-default { cursor: default; }
-
+        .gap-1 { gap: 0.25rem; }
         .select-none { user-select: none; }
-        .pointer-events-none { pointer-events: none; }
 
-        .opacity-0 { opacity: 0; }
-        .opacity-50 { opacity: 0.5; }
-        .opacity-75 { opacity: 0.75; }
-        .opacity-100 { opacity: 1; }
-
-        .z-1 { z-index: 1; }
-        .z-10 { z-index: 10; }
-        .z-50 { z-index: 50; }
-        .z-100 { z-index: 100; }
-
-        /* ----- 22.0 PRINT STYLES ----- */
+        /* Print */
         @media print {
-            .bg-layer,
-            .vignette,
-            .particles-overlay {
-                display: none !important;
-            }
-            .gallery-wrapper {
-                padding: 1rem !important;
-            }
-            .status-bar {
-                background: #faf7f2 !important;
-                color: #1a0f0a !important;
-                border: 1px solid #ddd !important;
-            }
-            .media-card {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
+            .bg-layer, .vignette, .particles-overlay { display: none !important; }
+            .gallery-wrapper { padding: 1rem !important; }
+            .status-bar { background: #faf7f2 !important; color: #1a0f0a !important; }
         }
 
-        /* ----- 23.0 REDUCED MOTION ----- */
+        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
-    <!-- ===== BACKGROUND LAYERS ===== -->
     <div class="bg-layer"></div>
     <div class="vignette"></div>
     <div class="particles-overlay">
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div>
+        <div class="particle" style="left:5%;width:4px;height:4px;--duration:22s;"></div>
+        <div class="particle" style="left:15%;width:6px;height:6px;--duration:28s;animation-delay:2s;"></div>
+        <div class="particle" style="left:25%;width:3px;height:3px;--duration:18s;animation-delay:4s;"></div>
+        <div class="particle" style="left:35%;width:5px;height:5px;--duration:24s;animation-delay:6s;"></div>
+        <div class="particle" style="left:45%;width:7px;height:7px;--duration:30s;animation-delay:8s;"></div>
+        <div class="particle" style="left:55%;width:3px;height:3px;--duration:20s;animation-delay:10s;"></div>
+        <div class="particle" style="left:65%;width:5px;height:5px;--duration:26s;animation-delay:12s;"></div>
+        <div class="particle" style="left:75%;width:4px;height:4px;--duration:32s;animation-delay:14s;"></div>
+        <div class="particle" style="left:85%;width:6px;height:6px;--duration:23s;animation-delay:16s;"></div>
+        <div class="particle" style="left:92%;width:3px;height:3px;--duration:27s;animation-delay:18s;"></div>
     </div>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <div class="gallery-wrapper">
-        <!-- HEADER -->
-        <header class="brand" role="banner">
-            <h1><i class="fas fa-camera-retro" aria-hidden="true"></i> Zanele's World</h1>
-            <span class="sub"><i class="far fa-eye" aria-hidden="true"></i> · my story in frames</span>
+        <header class="brand">
+            <h1><i class="fas fa-camera-retro"></i> Zanele's World</h1>
+            <span class="sub"><i class="far fa-eye"></i> · my story in frames</span>
         </header>
 
-        <!-- STATUS BAR -->
-        <div class="status-bar" id="statusBar" role="status" aria-live="polite">
-            <i class="fas fa-spinner fa-pulse status-icon" aria-hidden="true"></i>
+        <div class="status-bar" id="statusBar">
+            <i class="fas fa-spinner fa-pulse status-icon"></i>
             <span class="status-text" id="statusText">Connecting to GitHub...</span>
-            <span class="repo-info"><i class="fab fa-github" aria-hidden="true"></i> BongaNkala/zanele-world-gallery</span>
+            <span class="repo-info"><i class="fab fa-github"></i> BongaNkala/zanele-world-gallery</span>
             <span class="status-right">
-                <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Auto-save enabled
+                <i class="fas fa-cloud-upload-alt"></i> Auto-save enabled
             </span>
         </div>
 
-        <!-- UPLOAD CARD -->
-        <div class="upload-card" role="region" aria-label="File upload section">
+        <div class="upload-card">
             <div class="upload-grid">
                 <div class="file-input-wrapper">
-                    <label for="fileInput">
-                        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Choose Files
-                    </label>
-                    <input type="file" id="fileInput" accept="image/*,video/*" multiple aria-label="Choose image or video files to upload" />
+                    <label for="fileInput"><i class="fas fa-cloud-upload-alt"></i> Choose Files</label>
+                    <input type="file" id="fileInput" accept="image/*,video/*" multiple />
                     <span class="file-name" id="fileDisplay">no file selected</span>
                 </div>
                 <div class="upload-actions">
-                    <button class="btn btn-success" id="uploadBtn" aria-label="Upload selected files to GitHub">
-                        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i> Upload to GitHub
-                    </button>
-                    <button class="btn btn-outline" id="clearAllBtn" aria-label="Clear all items from gallery view">
-                        <i class="fas fa-trash-alt" aria-hidden="true"></i> Clear All
-                    </button>
+                    <button class="btn btn-success" id="uploadBtn"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
+                    <button class="btn btn-outline" id="clearAllBtn"><i class="fas fa-trash-alt"></i> Clear All</button>
                 </div>
             </div>
 
-            <!-- PROGRESS BAR -->
-            <div class="progress-container" id="progressContainer" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <i class="fas fa-spinner fa-pulse progress-icon" aria-hidden="true"></i>
+            <div class="progress-container" id="progressContainer">
+                <i class="fas fa-spinner fa-pulse" style="color:var(--gold-400);"></i>
                 <div class="progress-track">
-                    <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <span class="progress-label" id="progressLabel">0%</span>
             </div>
 
-            <div class="upload-hint" aria-hidden="true">
+            <div class="upload-hint">
                 <span><i class="fas fa-image"></i> JPG, PNG, GIF</span>
-                <span><i class="fas fa-video"></i> MP4, MOV, AVI</span>
-                <span><i class="fas fa-github"></i> Auto-saves to GitHub</span>
-                <span><i class="fas fa-layer-group"></i> Gallery View</span>
+                <span><i class="fas fa-video"></i> MP4, MOV</span>
+                <span><i class="fas fa-github"></i> Auto-saves</span>
                 <span><i class="fas fa-bolt"></i> Parallel Upload</span>
             </div>
         </div>
 
-        <!-- GALLERY HEADER WITH VIEW TOGGLE -->
         <div class="gallery-header">
-            <div class="gallery-header-left">
-                <h2><i class="fas fa-images" aria-hidden="true"></i> Gallery</h2>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <h2><i class="fas fa-images"></i> Gallery</h2>
                 <span class="gallery-counter" id="mediaCounter">0 items</span>
             </div>
-            <div class="view-toggle" role="group" aria-label="Gallery view options">
-                <button class="toggle-btn active" id="thumbnailView" aria-label="Thumbnail view" title="Thumbnail view">
-                    <i class="fas fa-th"></i>
-                    <span>Thumbnails</span>
-                </button>
-                <button class="toggle-btn" id="listView" aria-label="List view" title="List view">
-                    <i class="fas fa-list"></i>
-                    <span>List</span>
-                </button>
+            <div class="view-toggle">
+                <button class="toggle-btn active" id="thumbnailView"><i class="fas fa-th"></i><span>Thumbnails</span></button>
+                <button class="toggle-btn" id="listView"><i class="fas fa-list"></i><span>List</span></button>
             </div>
         </div>
 
-        <!-- GALLERY GRID -->
-        <div class="gallery-grid thumbnail-view" id="galleryGrid" role="list">
-            <div class="empty-gallery" id="emptyGallery" role="status">
-                <i class="fas fa-palette" aria-hidden="true"></i>
+        <div class="gallery-grid thumbnail-view" id="galleryGrid">
+            <div class="empty-gallery" id="emptyGallery">
+                <i class="fas fa-palette"></i>
                 <p>Your world is empty — upload your first photo or video</p>
                 <span class="sub-text">✨ Zanele's World awaits your story</span>
             </div>
         </div>
     </div>
 
-    <!-- ===== TOAST ===== -->
-    <div class="toast" id="toast" role="alert" aria-live="assertive">
-        <i class="fas fa-info-circle" id="toastIcon" aria-hidden="true"></i>
+    <div class="toast" id="toast">
+        <i id="toastIcon" class="fas fa-info-circle"></i>
         <span id="toastMessage">Message</span>
-        <button class="toast-close" onclick="closeToast()" aria-label="Close notification">&times;</button>
+        <button class="toast-close" onclick="window.closeToast()">&times;</button>
     </div>
 
-    <!-- ===== CONFIRM DIALOG ===== -->
-    <div class="confirm-dialog" id="confirmDialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <div class="confirm-dialog" id="confirmDialog">
         <div class="dialog-box">
-            <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-            <h3 id="confirmTitle">Confirm Action</h3>
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3 id="confirmTitle">Confirm</h3>
             <p id="confirmMessage">Are you sure?</p>
             <div class="dialog-actions">
-                <button class="btn btn-outline" id="confirmCancel" aria-label="Cancel action">Cancel</button>
-                <button class="btn btn-success" id="confirmOk" aria-label="Confirm action">Confirm</button>
+                <button class="btn btn-outline" id="confirmCancel">Cancel</button>
+                <button class="btn btn-success" id="confirmOk">Confirm</button>
             </div>
         </div>
     </div>
 
     <script>
-        (function() {
-            'use strict';
+        'use strict';
 
-            // ================================================================
-            // 🏆 ULTIMATE GALLERY ENGINE - ZANELE'S WORLD
-            // ================================================================
+        const CONFIG = {
+            GITHUB_REPO: 'BongaNkala/zanele-world-gallery',
+            MAX_FILE_SIZE: 100 * 1024 * 1024,
+            ALLOWED_TYPES: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'video/mp4', 'video/quicktime', 'video/webm'],
+            BATCH_UPLOAD_LIMIT: 50,
+            MAX_RETRIES: 3,
+        };
 
-            // ----- 1.0 CONFIGURATION -----
-            const CONFIG = {
-                GITHUB_REPO: 'BongaNkala/zanele-world-gallery',
-                MAX_FILE_SIZE: 100 * 1024 * 1024,
-                ALLOWED_TYPES: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/webm'],
-                TOAST_DURATION: 4000,
-                PROGRESS_ANIMATION_DELAY: 600,
-                BATCH_UPLOAD_LIMIT: 50,
-                MAX_RETRIES: 3,
-                RETRY_DELAY: 1000,
-            };
+        let state = {
+            mediaItems: [],
+            idCounter: 0,
+            isConnected: false,
+            confirmResolve: null,
+            isUploading: false,
+            viewMode: localStorage.getItem('galleryViewMode') || 'thumbnail'
+        };
 
-            // ----- 2.0 STATE -----
-            let state = {
-                mediaItems: [],
-                idCounter: 0,
-                isConnected: false,
-                confirmResolve: null,
-                uploadQueue: [],
-                isUploading: false,
-                toastTimeout: null,
-                retryCount: 0,
-                viewMode: 'thumbnail', // 'thumbnail' or 'list'
-            };
+        const DOM = {
+            fileInput: document.getElementById('fileInput'),
+            fileDisplay: document.getElementById('fileDisplay'),
+            uploadBtn: document.getElementById('uploadBtn'),
+            clearAllBtn: document.getElementById('clearAllBtn'),
+            galleryGrid: document.getElementById('galleryGrid'),
+            emptyGallery: document.getElementById('emptyGallery'),
+            mediaCounter: document.getElementById('mediaCounter'),
+            progressContainer: document.getElementById('progressContainer'),
+            progressFill: document.getElementById('progressFill'),
+            progressLabel: document.getElementById('progressLabel'),
+            statusText: document.getElementById('statusText'),
+            toast: document.getElementById('toast'),
+            toastMessage: document.getElementById('toastMessage'),
+            toastIcon: document.getElementById('toastIcon'),
+            confirmDialog: document.getElementById('confirmDialog'),
+            confirmTitle: document.getElementById('confirmTitle'),
+            confirmMessage: document.getElementById('confirmMessage'),
+            confirmCancel: document.getElementById('confirmCancel'),
+            confirmOk: document.getElementById('confirmOk'),
+            statusBar: document.getElementById('statusBar'),
+            thumbnailView: document.getElementById('thumbnailView'),
+            listView: document.getElementById('listView'),
+        };
 
-            // ----- 3.0 DOM REFS -----
-            const DOM = {
-                fileInput: document.getElementById('fileInput'),
-                fileDisplay: document.getElementById('fileDisplay'),
-                uploadBtn: document.getElementById('uploadBtn'),
-                clearAllBtn: document.getElementById('clearAllBtn'),
-                galleryGrid: document.getElementById('galleryGrid'),
-                emptyGallery: document.getElementById('emptyGallery'),
-                mediaCounter: document.getElementById('mediaCounter'),
-                progressContainer: document.getElementById('progressContainer'),
-                progressFill: document.getElementById('progressFill'),
-                progressLabel: document.getElementById('progressLabel'),
-                statusText: document.getElementById('statusText'),
-                toast: document.getElementById('toast'),
-                toastMessage: document.getElementById('toastMessage'),
-                toastIcon: document.getElementById('toastIcon'),
-                confirmDialog: document.getElementById('confirmDialog'),
-                confirmTitle: document.getElementById('confirmTitle'),
-                confirmMessage: document.getElementById('confirmMessage'),
-                confirmCancel: document.getElementById('confirmCancel'),
-                confirmOk: document.getElementById('confirmOk'),
-                statusBar: document.getElementById('statusBar'),
-                thumbnailView: document.getElementById('thumbnailView'),
-                listView: document.getElementById('listView'),
-            };
+        let GITHUB_TOKEN = localStorage.getItem('githubToken');
+        if (!GITHUB_TOKEN) {
+            GITHUB_TOKEN = prompt('🔑 Enter your GitHub token (needs "repo" scope):\nhttps://github.com/settings/tokens');
+            if (GITHUB_TOKEN) localStorage.setItem('githubToken', GITHUB_TOKEN);
+        }
 
-            // ----- 4.0 TOKEN MANAGEMENT -----
-            let GITHUB_TOKEN = localStorage.getItem('githubToken');
+        function showToast(msg, type = 'info') {
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+            DOM.toastIcon.className = 'fas ' + (icons[type] || icons.info);
+            DOM.toastMessage.textContent = msg;
+            DOM.toast.className = 'toast ' + type + ' show';
+            setTimeout(() => DOM.toast.classList.remove('show'), 4000);
+        }
+
+        window.closeToast = () => DOM.toast.classList.remove('show');
+
+        function showConfirm(title, msg) {
+            return new Promise(resolve => {
+                DOM.confirmTitle.textContent = title;
+                DOM.confirmMessage.textContent = msg;
+                DOM.confirmDialog.classList.add('active');
+                state.confirmResolve = resolve;
+            });
+        }
+
+        DOM.confirmCancel.onclick = () => {
+            DOM.confirmDialog.classList.remove('active');
+            if (state.confirmResolve) state.confirmResolve(false);
+        };
+
+        DOM.confirmOk.onclick = () => {
+            DOM.confirmDialog.classList.remove('active');
+            if (state.confirmResolve) state.confirmResolve(true);
+        };
+
+        function updateStatus(msg, type) {
+            DOM.statusText.textContent = msg;
+            const icon = DOM.statusBar.querySelector('.status-icon');
+            if (type === 'connected') {
+                DOM.statusBar.style.background = 'rgba(40,167,69,0.08)';
+                icon.className = 'fas fa-check-circle status-icon';
+                icon.style.color = '#28a745';
+            } else if (type === 'error') {
+                DOM.statusBar.style.background = 'rgba(220,53,69,0.08)';
+                icon.className = 'fas fa-exclamation-circle status-icon';
+                icon.style.color = '#dc3545';
+            }
+        }
+
+        function setViewMode(mode) {
+            state.viewMode = mode;
+            DOM.thumbnailView.classList.toggle('active', mode === 'thumbnail');
+            DOM.listView.classList.toggle('active', mode === 'list');
+            DOM.galleryGrid.classList.remove('thumbnail-view', 'list-view');
+            DOM.galleryGrid.classList.add(mode === 'thumbnail' ? 'thumbnail-view' : 'list-view');
+            renderGallery();
+            localStorage.setItem('galleryViewMode', mode);
+        }
+
+        DOM.thumbnailView.onclick = () => setViewMode('thumbnail');
+        DOM.listView.onclick = () => setViewMode('list');
+
+        function connectToGitHub() {
             if (!GITHUB_TOKEN) {
-                GITHUB_TOKEN = prompt('🔑 Enter your GitHub token to connect to the gallery:\n\n(Get one at https://github.com/settings/tokens)\n\nSelect "repo" scope!');
-                if (GITHUB_TOKEN) {
-                    localStorage.setItem('githubToken', GITHUB_TOKEN);
-                }
+                updateStatus('❌ No token provided', 'error');
+                showToast('❌ Please enter your GitHub token', 'error');
+                return;
             }
 
-            // ----- 5.0 TOAST SYSTEM -----
-            function showToast(message, type = 'info', duration = CONFIG.TOAST_DURATION) {
-                clearTimeout(state.toastTimeout);
-                const icons = {
-                    success: 'fa-check-circle',
-                    error: 'fa-exclamation-circle',
-                    warning: 'fa-exclamation-triangle',
-                    info: 'fa-info-circle'
-                };
-                DOM.toastIcon.className = 'fas ' + (icons[type] || icons.info);
-                DOM.toastMessage.textContent = message;
-                DOM.toast.className = 'toast ' + type + ' show';
-                state.toastTimeout = setTimeout(function() {
-                    DOM.toast.classList.remove('show');
-                }, duration);
-            }
-
-            function closeToast() {
-                DOM.toast.classList.remove('show');
-                clearTimeout(state.toastTimeout);
-            }
-
-            window.closeToast = closeToast;
-
-            // ----- 6.0 CONFIRM DIALOG -----
-            function showConfirm(title, message) {
-                return new Promise((resolve) => {
-                    DOM.confirmTitle.textContent = title;
-                    DOM.confirmMessage.textContent = message;
-                    DOM.confirmDialog.classList.add('active');
-                    state.confirmResolve = resolve;
-                });
-            }
-
-            DOM.confirmCancel.addEventListener('click', function() {
-                DOM.confirmDialog.classList.remove('active');
-                if (state.confirmResolve) state.confirmResolve(false);
+            fetch('https://api.github.com/user', {
+                headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+            })
+            .then(r => r.ok ? r.json() : Promise.reject(new Error(r.status)))
+            .then(data => {
+                updateStatus('✅ Connected as ' + data.login, 'connected');
+                state.isConnected = true;
+                DOM.uploadBtn.disabled = false;
+                showToast('✨ Connected as ' + data.login, 'success');
+                loadGalleryFromGitHub();
+            })
+            .catch(e => {
+                updateStatus('❌ Connection failed', 'error');
+                showToast('❌ ' + e.message, 'error');
             });
+        }
 
-            DOM.confirmOk.addEventListener('click', function() {
-                DOM.confirmDialog.classList.remove('active');
-                if (state.confirmResolve) state.confirmResolve(true);
-            });
-
-            // ----- 7.0 STATUS UPDATE -----
-            function updateStatus(message, type) {
-                DOM.statusText.textContent = message;
-                const icon = DOM.statusBar.querySelector('.status-icon');
-                if (type === 'connected') {
-                    DOM.statusBar.style.background = 'rgba(40,167,69,0.08)';
-                    icon.className = 'fas fa-check-circle status-icon';
-                    icon.style.color = '#28a745';
-                } else if (type === 'error') {
-                    DOM.statusBar.style.background = 'rgba(220,53,69,0.08)';
-                    icon.className = 'fas fa-exclamation-circle status-icon';
-                    icon.style.color = '#dc3545';
-                } else {
-                    DOM.statusBar.style.background = 'rgba(23,162,184,0.08)';
-                    icon.className = 'fas fa-spinner fa-pulse status-icon';
-                    icon.style.color = '#17a2b8';
-                }
-            }
-
-            // ----- 8.0 VIEW TOGGLE -----
-            function setViewMode(mode) {
-                state.viewMode = mode;
-                
-                // Update button states
-                DOM.thumbnailView.classList.toggle('active', mode === 'thumbnail');
-                DOM.listView.classList.toggle('active', mode === 'list');
-                
-                // Update grid class
-                DOM.galleryGrid.classList.remove('thumbnail-view', 'list-view');
-                DOM.galleryGrid.classList.add(mode === 'thumbnail' ? 'thumbnail-view' : 'list-view');
-                
-                // Re-render with current mode
-                renderGallery();
-                
-                // Save preference
-                localStorage.setItem('galleryViewMode', mode);
-            }
-
-            DOM.thumbnailView.addEventListener('click', function() {
-                setViewMode('thumbnail');
-            });
-
-            DOM.listView.addEventListener('click', function() {
-                setViewMode('list');
-            });
-
-            // ----- 9.0 CONNECT TO GITHUB -----
-            function connectToGitHub() {
-                if (!GITHUB_TOKEN) {
-                    updateStatus('❌ No token provided', 'error');
-                    DOM.uploadBtn.disabled = true;
-                    DOM.uploadBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Token Required';
-                    showToast('❌ Please refresh and enter your GitHub token', 'error');
-                    return;
-                }
-
-                updateStatus('Connecting to GitHub...', 'connecting');
-
-                fetch('https://api.github.com/user', {
-                    headers: {
-                        'Authorization': 'token ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else if (response.status === 401) {
-                        localStorage.removeItem('githubToken');
-                        throw new Error('Invalid token. Please refresh and enter a valid token.');
-                    } else {
-                        throw new Error('GitHub API error: ' + response.status);
-                    }
-                })
-                .then(userData => {
-                    updateStatus('✅ Connected as ' + userData.login, 'connected');
-                    state.isConnected = true;
-                    DOM.uploadBtn.disabled = false;
-                    DOM.uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
-                    showToast('✨ Connected to GitHub as ' + userData.login, 'success');
-                    loadGalleryFromGitHub();
-                })
-                .catch(error => {
-                    updateStatus('❌ ' + error.message, 'error');
-                    state.isConnected = false;
-                    DOM.uploadBtn.disabled = true;
-                    DOM.uploadBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Connection Failed';
-                    showToast('❌ Connection error: ' + error.message, 'error');
-                });
-            }
-
-            // ----- 10.0 LOAD FROM GITHUB -----
-            function loadGalleryFromGitHub() {
-                if (!state.isConnected) return;
-
-                showToast('📂 Loading gallery from GitHub...', 'info');
-
-                fetch('https://api.github.com/repos/' + CONFIG.GITHUB_REPO + '/contents/gallery', {
-                    headers: {
-                        'Authorization': 'token ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                })
-                .then(response => {
-                    if (response.status === 404) {
-                        return [];
-                    }
-                    if (!response.ok) {
-                        throw new Error('Failed to load gallery: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(files => {
-                    if (!files || !Array.isArray(files)) return;
-
-                    state.mediaItems = [];
-                    state.idCounter = 0;
-
-                    const imageFiles = files.filter(f =>
-                        f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i) ||
-                        f.name.match(/\.(mp4|mov|avi|webm|mkv)$/i)
-                    );
-
-                    if (imageFiles.length === 0) {
-                        renderGallery();
-                        showToast('📭 Gallery is empty. Upload your first piece!', 'info');
-                        return;
-                    }
-
-                    let loaded = 0;
-                    imageFiles.forEach(file => {
-                        const isVideo = file.name.match(/\.(mp4|mov|avi|webm|mkv)$/i);
-                        const type = isVideo ? 'video/' + file.name.split('.').pop() : 'image/' + file.name.split('.').pop();
-
-                        const rawUrl = 'https://raw.githubusercontent.com/' + CONFIG.GITHUB_REPO +
-                            '/main/gallery/' + encodeURIComponent(file.name);
-
-                        const newItem = {
-                            id: ++state.idCounter,
-                            type: type,
-                            dataURL: rawUrl,
-                            name: file.name,
-                            sha: file.sha,
-                            fromGitHub: true
-                        };
-                        state.mediaItems.push(newItem);
-                        loaded++;
-
-                        if (loaded === imageFiles.length) {
-                            renderGallery();
-                            showToast('✨ Loaded ' + imageFiles.length + ' items from GitHub!', 'success');
-                        }
+        function loadGalleryFromGitHub() {
+            fetch('https://api.github.com/repos/' + CONFIG.GITHUB_REPO + '/contents/gallery', {
+                headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+            })
+            .then(r => r.status === 404 ? [] : r.json())
+            .then(files => {
+                state.mediaItems = [];
+                state.idCounter = 0;
+                const media = files.filter(f => /\.(jpg|jpeg|png|gif|webp|mp4|mov|avi|webm)$/i.test(f.name)) || [];
+                media.forEach(f => {
+                    const isVideo = /\.(mp4|mov|avi|webm)$/i.test(f.name);
+                    state.mediaItems.push({
+                        id: ++state.idCounter,
+                        type: (isVideo ? 'video/' : 'image/') + f.name.split('.').pop(),
+                        dataURL: `https://raw.githubusercontent.com/${CONFIG.GITHUB_REPO}/main/gallery/${encodeURIComponent(f.name)}`,
+                        name: f.name,
+                        sha: f.sha,
+                        fromGitHub: true
                     });
-                })
-                .catch(error => {
-                    console.error('Error loading gallery:', error);
-                    showToast('❌ Error loading gallery: ' + error.message, 'error');
-                });
-            }
-
-            // ----- 11.0 RENDER GALLERY -----
-            function renderGallery() {
-                // Clear grid
-                while (DOM.galleryGrid.firstChild) {
-                    DOM.galleryGrid.removeChild(DOM.galleryGrid.firstChild);
-                }
-
-                if (state.mediaItems.length === 0) {
-                    DOM.galleryGrid.appendChild(DOM.emptyGallery);
-                    DOM.emptyGallery.style.display = 'block';
-                    DOM.mediaCounter.textContent = '0 items';
-                    return;
-                }
-
-                DOM.emptyGallery.style.display = 'none';
-                DOM.mediaCounter.textContent = `${state.mediaItems.length} item${state.mediaItems.length > 1 ? 's' : ''}`;
-
-                const fragment = document.createDocumentFragment();
-                const reversed = [...state.mediaItems].reverse();
-
-                for (const item of reversed) {
-                    const card = createMediaCard(item);
-                    fragment.appendChild(card);
-                }
-
-                DOM.galleryGrid.appendChild(fragment);
-            }
-
-            // ----- 12.0 CREATE MEDIA CARD -----
-            function createMediaCard(item) {
-                const isListView = state.viewMode === 'list';
-                
-                const card = document.createElement('div');
-                card.className = 'media-card';
-                card.dataset.id = item.id;
-                card.setAttribute('role', 'listitem');
-
-                const preview = document.createElement('div');
-                preview.className = 'media-preview';
-
-                const overlay = document.createElement('div');
-                overlay.className = 'overlay-gradient';
-                preview.appendChild(overlay);
-
-                const savedBadge = document.createElement('span');
-                savedBadge.className = 'github-saved' + (item.fromGitHub ? ' show' : '');
-                savedBadge.innerHTML = '<i class="fab fa-github"></i> GitHub';
-                preview.appendChild(savedBadge);
-
-                let mediaElement;
-                if (item.type.startsWith('image/')) {
-                    const img = document.createElement('img');
-                    img.src = item.dataURL;
-                    img.alt = item.name || 'image';
-                    img.loading = 'lazy';
-                    img.style.width = '100%';
-                    img.style.height = 'auto';
-                    mediaElement = img;
-                } else if (item.type.startsWith('video/')) {
-                    const video = document.createElement('video');
-                    video.src = item.dataURL;
-                    video.controls = true;
-                    video.preload = 'metadata';
-                    video.muted = true;
-                    video.setAttribute('playsinline', '');
-                    video.style.width = '100%';
-                    video.style.height = 'auto';
-                    mediaElement = video;
-                } else {
-                    const icon = document.createElement('i');
-                    icon.className = 'fas fa-file';
-                    icon.style.fontSize = isListView ? '2rem' : '4rem';
-                    icon.style.opacity = '0.3';
-                    mediaElement = icon;
-                }
-
-                preview.appendChild(mediaElement);
-
-                const info = document.createElement('div');
-                info.className = 'media-info';
-
-                if (isListView) {
-                    // List view - show details
-                    const details = document.createElement('div');
-                    details.className = 'media-details';
-                    
-                    const name = document.createElement('span');
-                    name.className = 'media-name';
-                    name.textContent = item.name || 'Untitled';
-                    details.appendChild(name);
-                    
-                    const meta = document.createElement('div');
-                    meta.className = 'media-meta';
-                    
-                    const typeBadge = document.createElement('span');
-                    typeBadge.className = 'media-type-badge';
-                    const isVideo = item.type.startsWith('video/');
-                    typeBadge.innerHTML = isVideo ?
-                        '<i class="fas fa-video"></i> video' :
-                        '<i class="fas fa-image"></i> photo';
-                    meta.appendChild(typeBadge);
-                    
-                    const size = document.createElement('span');
-                    size.textContent = '• ' + (item.type.split('/')[1] || 'file').toUpperCase();
-                    meta.appendChild(size);
-                    
-                    details.appendChild(meta);
-                    info.appendChild(details);
-                } else {
-                    // Thumbnail view - just badge
-                    const badge = document.createElement('span');
-                    badge.className = 'media-type-badge';
-                    const isVideo = item.type.startsWith('video/');
-                    badge.innerHTML = isVideo ?
-                        '<i class="fas fa-video"></i> video' :
-                        '<i class="fas fa-image"></i> photo';
-                    info.appendChild(badge);
-                }
-
-                const deleteBtn = document.createElement('button');
-                deleteBtn.className = 'delete-btn';
-                deleteBtn.innerHTML = '<i class="fas fa-times-circle"></i>';
-                deleteBtn.setAttribute('aria-label', 'Delete media');
-                deleteBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    deleteItem(item.id);
-                });
-
-                info.appendChild(deleteBtn);
-                card.appendChild(preview);
-                card.appendChild(info);
-
-                return card;
-            }
-
-            // ----- 13.0 DELETE ITEM -----
-            async function deleteItem(id) {
-                const item = state.mediaItems.find(i => i.id === id);
-                if (item && item.fromGitHub && state.isConnected) {
-                    const confirmed = await showConfirm(
-                        'Delete from GitHub',
-                        'Are you sure you want to delete "' + item.name + '" from GitHub?'
-                    );
-                    if (confirmed) {
-                        deleteFromGitHub(item.name, item.sha);
-                    }
-                    return;
-                }
-                state.mediaItems = state.mediaItems.filter(function(item) {
-                    return item.id !== id;
                 });
                 renderGallery();
-                if (state.mediaItems.length === 0) {
-                    DOM.fileDisplay.textContent = 'no file selected';
-                    DOM.fileInput.value = '';
-                }
+                if (media.length > 0) showToast('✨ Loaded ' + media.length + ' items', 'success');
+            })
+            .catch(e => showToast('❌ ' + e.message, 'error'));
+        }
+
+        function renderGallery() {
+            DOM.galleryGrid.innerHTML = '';
+            if (state.mediaItems.length === 0) {
+                DOM.galleryGrid.appendChild(DOM.emptyGallery);
+                DOM.mediaCounter.textContent = '0 items';
+                return;
+            }
+            DOM.mediaCounter.textContent = state.mediaItems.length + ' item' + (state.mediaItems.length > 1 ? 's' : '');
+            const frag = document.createDocumentFragment();
+            [...state.mediaItems].reverse().forEach(item => frag.appendChild(createMediaCard(item)));
+            DOM.galleryGrid.appendChild(frag);
+        }
+
+        function createMediaCard(item) {
+            const card = document.createElement('div');
+            card.className = 'media-card';
+            
+            const preview = document.createElement('div');
+            preview.className = 'media-preview';
+
+            const badge = document.createElement('span');
+            badge.className = 'github-saved' + (item.fromGitHub ? ' show' : '');
+            badge.innerHTML = '<i class="fab fa-github"></i> GitHub';
+            preview.appendChild(badge);
+
+            let media;
+            if (item.type.startsWith('image/')) {
+                media = document.createElement('img');
+                media.src = item.dataURL;
+                media.alt = item.name;
+            } else {
+                media = document.createElement('video');
+                media.src = item.dataURL;
+                media.muted = true;
+            }
+            preview.appendChild(media);
+
+            const info = document.createElement('div');
+            info.className = 'media-info';
+
+            if (state.viewMode === 'list') {
+                const details = document.createElement('div');
+                details.className = 'media-details';
+                const name = document.createElement('span');
+                name.className = 'media-name';
+                name.textContent = item.name;
+                details.appendChild(name);
+                info.appendChild(details);
             }
 
-            // ----- 14.0 DELETE FROM GITHUB -----
-            function deleteFromGitHub(filename, sha) {
-                if (!sha) {
-                    showToast('❌ Cannot delete: missing file SHA', 'error');
-                    return;
-                }
+            const delBtn = document.createElement('button');
+            delBtn.className = 'delete-btn';
+            delBtn.innerHTML = '<i class="fas fa-times-circle"></i>';
+            delBtn.onclick = e => { e.stopPropagation(); deleteItem(item.id); };
+            info.appendChild(delBtn);
 
-                fetch('https://api.github.com/repos/' + CONFIG.GITHUB_REPO + '/contents/gallery/' + encodeURIComponent(filename), {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': 'token ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json'
-                    },
-                    body: JSON.stringify({
-                        message: 'Delete ' + filename + ' from gallery',
-                        sha: sha
+            card.appendChild(preview);
+            card.appendChild(info);
+            return card;
+        }
+
+        function deleteItem(id) {
+            state.mediaItems = state.mediaItems.filter(i => i.id !== id);
+            renderGallery();
+        }
+
+        function uploadToGitHub(file, retry = 0) {
+            return new Promise((resolve, reject) => {
+                if (file.size > CONFIG.MAX_FILE_SIZE) return reject(new Error('File too large'));
+                const reader = new FileReader();
+                reader.onload = e => {
+                    const base64 = e.target.result.split(',')[1];
+                    const filename = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+                    fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/gallery/${encodeURIComponent(filename)}`, {
+                        method: 'PUT',
+                        headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'Accept': 'application/vnd.github.v3+json' },
+                        body: JSON.stringify({ message: 'Upload ' + filename, content: base64, branch: 'main' })
                     })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        state.mediaItems = state.mediaItems.filter(i => i.name !== filename);
-                        renderGallery();
-                        showToast('🗑️ Deleted ' + filename + ' from GitHub', 'success');
-                        if (state.mediaItems.length === 0) {
-                            DOM.fileDisplay.textContent = 'no file selected';
-                            DOM.fileInput.value = '';
-                        }
-                    } else {
-                        return response.json().then(data => {
-                            throw new Error(data.message || 'Delete failed');
-                        });
-                    }
-                })
-                .catch(error => {
-                    showToast('❌ Delete failed: ' + error.message, 'error');
-                });
-            }
+                    .then(r => r.ok ? r.json() : Promise.reject())
+                    .then(data => resolve({
+                        id: ++state.idCounter,
+                        type: file.type,
+                        dataURL: `https://raw.githubusercontent.com/${CONFIG.GITHUB_REPO}/main/gallery/${encodeURIComponent(filename)}`,
+                        name: filename,
+                        sha: data.content.sha,
+                        fromGitHub: true
+                    }))
+                    .catch(() => retry < CONFIG.MAX_RETRIES ? setTimeout(() => uploadToGitHub(file, retry + 1).then(resolve).catch(reject), 1000) : reject(new Error('Upload failed')));
+                };
+                reader.readAsDataURL(file);
+            });
+        }
 
-            // ----- 15.0 UPDATE PROGRESS -----
-            function updateProgress(loaded, total) {
-                const percent = Math.min(100, Math.round((loaded / total) * 100));
-                DOM.progressFill.style.width = percent + '%';
-                DOM.progressLabel.textContent = percent + '%';
-                DOM.progressContainer.setAttribute('aria-valuenow', percent);
+        function addFiles(fileList) {
+            if (!state.isConnected || state.isUploading) return showToast('⚠️ Upload in progress', 'warning');
+            const valid = Array.from(fileList).filter(f => CONFIG.ALLOWED_TYPES.includes(f.type));
+            if (valid.length === 0) return showToast('⚠️ Invalid file types', 'warning');
+            if (valid.length > CONFIG.BATCH_UPLOAD_LIMIT) return showToast('⚠️ Too many files', 'warning');
 
-                if (loaded >= total) {
-                    setTimeout(function() {
-                        DOM.progressContainer.classList.remove('active');
-                        DOM.uploadBtn.disabled = false;
-                        DOM.uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
-                        state.isUploading = false;
-                    }, CONFIG.PROGRESS_ANIMATION_DELAY);
-                }
-            }
+            state.isUploading = true;
+            DOM.progressContainer.classList.add('active');
+            DOM.uploadBtn.disabled = true;
 
-            // ----- 16.0 UPLOAD TO GITHUB WITH RETRY -----
-            function uploadToGitHub(file, retryCount = 0) {
-                return new Promise((resolve, reject) => {
-                    if (file.size > CONFIG.MAX_FILE_SIZE) {
-                        reject(new Error('File too large: ' + (file.size / 1024 / 1024).toFixed(1) + 'MB (max 100MB)'));
-                        return;
-                    }
-
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const base64 = e.target.result.split(',')[1];
-                        const filename = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-
-                        fetch('https://api.github.com/repos/' + CONFIG.GITHUB_REPO + '/contents/gallery/' + encodeURIComponent(filename), {
-                            method: 'PUT',
-                            headers: {
-                                'Authorization': 'token ' + GITHUB_TOKEN,
-                                'Accept': 'application/vnd.github.v3+json'
-                            },
-                            body: JSON.stringify({
-                                message: 'Upload ' + filename + ' to gallery',
-                                content: base64,
-                                branch: 'main'
-                            })
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                return response.json();
-                            } else {
-                                return response.json().then(data => {
-                                    throw new Error(data.message || 'Upload failed');
-                                });
-                            }
-                        })
-                        .then(data => {
-                            const rawUrl = 'https://raw.githubusercontent.com/' + CONFIG.GITHUB_REPO +
-                                '/main/gallery/' + encodeURIComponent(filename);
-                            const newItem = {
-                                id: ++state.idCounter,
-                                type: file.type,
-                                dataURL: rawUrl,
-                                name: filename,
-                                sha: data.content.sha,
-                                fromGitHub: true
-                            };
-                            resolve(newItem);
-                        })
-                        .catch(error => {
-                            if (retryCount < CONFIG.MAX_RETRIES) {
-                                setTimeout(() => {
-                                    uploadToGitHub(file, retryCount + 1)
-                                        .then(resolve)
-                                        .catch(reject);
-                                }, CONFIG.RETRY_DELAY * (retryCount + 1));
-                            } else {
-                                reject(error);
-                            }
-                        });
-                    };
-                    reader.onerror = function() {
-                        reject(new Error('Failed to read file'));
-                    };
-                    reader.readAsDataURL(file);
-                });
-            }
-
-            // ----- 17.0 ADD FILES (Batch Upload) -----
-            function addFiles(fileList) {
-                if (!fileList || fileList.length === 0) return;
-
-                if (!state.isConnected) {
-                    showToast('⚠️ Please check GitHub connection.', 'error');
-                    return;
-                }
-
-                if (state.isUploading) {
-                    showToast('⚠️ Upload already in progress. Please wait.', 'warning');
-                    return;
-                }
-
-                const validFiles = [];
-                for (let i = 0; i < fileList.length; i++) {
-                    const file = fileList[i];
-                    if (CONFIG.ALLOWED_TYPES.includes(file.type)) {
-                        validFiles.push(file);
-                    }
-                }
-
-                if (validFiles.length === 0) {
-                    showToast('⚠️ Please select valid image or video files.', 'warning');
-                    return;
-                }
-
-                if (validFiles.length > CONFIG.BATCH_UPLOAD_LIMIT) {
-                    showToast('⚠️ Maximum ' + CONFIG.BATCH_UPLOAD_LIMIT + ' files per batch.', 'warning');
-                    return;
-                }
-
-                state.isUploading = true;
-                DOM.progressContainer.classList.add('active');
-                DOM.progressFill.style.width = '0%';
-                DOM.progressLabel.textContent = '0%';
-                DOM.progressContainer.setAttribute('aria-valuenow', '0');
-                DOM.uploadBtn.disabled = true;
-                DOM.uploadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Uploading ' + validFiles.length + ' files...';
-
-                let uploaded = 0;
-                const total = validFiles.length;
-
-                const uploadPromises = validFiles.map(file => {
-                    return uploadToGitHub(file)
-                        .then(newItem => {
-                            state.mediaItems.push(newItem);
-                            uploaded++;
-                            updateProgress(uploaded, total);
-                            return newItem;
-                        })
-                        .catch(error => {
-                            uploaded++;
-                            updateProgress(uploaded, total);
-                            showToast('❌ Failed to upload ' + file.name + ': ' + error.message, 'error');
-                            return null;
-                        });
-                });
-
-                Promise.all(uploadPromises)
-                    .then(results => {
-                        const successful = results.filter(r => r !== null);
-                        if (successful.length > 0) {
-                            renderGallery();
-                            DOM.fileInput.value = '';
-                            DOM.fileDisplay.textContent = 'no file selected';
-                            showToast('✨ Uploaded ' + successful.length + ' of ' + total + ' files to GitHub!', 'success');
-                        } else {
-                            showToast('❌ All uploads failed. Please try again.', 'error');
-                            DOM.uploadBtn.disabled = false;
-                            DOM.uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
-                            DOM.progressContainer.classList.remove('active');
-                            state.isUploading = false;
-                        }
-                    });
-            }
-
-            // ----- 18.0 CLEAR ALL -----
-            async function clearAll() {
-                if (state.mediaItems.length === 0) return;
-                const confirmed = await showConfirm(
-                    'Clear Gallery',
-                    'This will clear all items from the gallery view. (Files remain on GitHub)'
-                );
-                if (confirmed) {
-                    state.mediaItems = [];
+            let uploaded = 0;
+            Promise.all(valid.map(f => uploadToGitHub(f).then(item => {
+                state.mediaItems.push(item);
+                DOM.progressFill.style.width = (++uploaded / valid.length * 100) + '%';
+                DOM.progressLabel.textContent = Math.round(uploaded / valid.length * 100) + '%';
+                return item;
+            }).catch(e => { uploaded++; showToast('❌ ' + f.name, 'error'); return null; })))
+            .then(results => {
+                const success = results.filter(r => r);
+                if (success.length > 0) {
                     renderGallery();
                     DOM.fileInput.value = '';
                     DOM.fileDisplay.textContent = 'no file selected';
-                    DOM.progressContainer.classList.remove('active');
-                    DOM.uploadBtn.disabled = false;
-                    DOM.uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
-                    state.isUploading = false;
-                    showToast('🗑️ Gallery cleared', 'info');
                 }
-            }
-
-            // ----- 19.0 EVENT LISTENERS -----
-            DOM.fileInput.addEventListener('change', function(e) {
-                const files = e.target.files;
-                if (files.length === 0) {
-                    DOM.fileDisplay.textContent = 'no file selected';
-                    return;
-                }
-                const names = Array.from(files).map(function(f) {
-                    return f.name;
-                });
-                DOM.fileDisplay.textContent = names.length === 1 ? names[0] : names.length + ' files selected';
+                DOM.progressContainer.classList.remove('active');
+                DOM.uploadBtn.disabled = false;
+                state.isUploading = false;
+                showToast(success.length + ' uploaded', 'success');
             });
+        }
 
-            DOM.uploadBtn.addEventListener('click', function() {
-                if (!state.isConnected) {
-                    showToast('⚠️ GitHub not connected. Please refresh.', 'error');
-                    return;
-                }
-                if (state.isUploading) {
-                    showToast('⚠️ Upload already in progress. Please wait.', 'warning');
-                    return;
-                }
-                if (DOM.fileInput.files.length === 0) {
-                    showToast('⚠️ Please select at least one photo or video.', 'warning');
-                    return;
-                }
-                addFiles(DOM.fileInput.files);
-            });
+        DOM.fileInput.onchange = e => {
+            DOM.fileDisplay.textContent = e.target.files.length ? (e.target.files.length > 1 ? e.target.files.length + ' files' : e.target.files[0].name) : 'no file selected';
+        };
 
-            DOM.clearAllBtn.addEventListener('click', clearAll);
+        DOM.uploadBtn.onclick = () => {
+            if (DOM.fileInput.files.length === 0) return showToast('⚠️ Select files', 'warning');
+            addFiles(DOM.fileInput.files);
+        };
 
-            // Keyboard shortcut: Ctrl+U for upload
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.key === 'u') {
-                    e.preventDefault();
-                    DOM.fileInput.click();
-                }
-            });
-
-            // Keyboard shortcut: 1 for thumbnail, 2 for list
-            document.addEventListener('keydown', function(e) {
-                if (e.key === '1') {
-                    setViewMode('thumbnail');
-                } else if (e.key === '2') {
-                    setViewMode('list');
-                }
-            });
-
-            // ----- 20.0 INIT -----
-            function init() {
-                // Load view preference
-                const savedView = localStorage.getItem('galleryViewMode');
-                if (savedView === 'list') {
-                    setViewMode('list');
-                } else {
-                    setViewMode('thumbnail');
-                }
-                
+        DOM.clearAllBtn.onclick = async () => {
+            if (await showConfirm('Clear Gallery', 'Clear all items?')) {
+                state.mediaItems = [];
                 renderGallery();
-                connectToGitHub();
-
-                console.log('🏆 Zanele\'s World — The Ultimate Gallery');
-                console.log('📁 Repository: ' + CONFIG.GITHUB_REPO);
-                console.log('✨ Features: Masonry, Batch Upload, Glass UI, Particles');
-                console.log('👁️  View modes: Thumbnail & List');
-                console.log('🖼️  ' + state.mediaItems.length + ' items loaded');
-                console.log('📊 ' + Object.keys(CONFIG).length + ' config options');
-                console.log('🎨 200+ CSS custom properties');
-                console.log('🚀 5000+ lines of premium code');
-                console.log('🔁 Auto-retry on upload failures');
-                console.log('📱 Fully responsive with 5 breakpoints');
-                console.log('♿ Accessibility: ARIA labels, semantic HTML');
-                console.log('🎯 Keyboard shortcuts: Ctrl+U for upload, 1=Thumbnail, 2=List');
-                console.log('🔄 Parallel upload with Promise.all');
-                console.log('💾 Token stored in localStorage');
-                console.log('🖼️  Masonry layout with glass-morphism');
-                console.log('✨ 20 animated particles');
-                console.log('🌟 Gold gradient accents throughout');
-                console.log('📦 Batch upload: up to ' + CONFIG.BATCH_UPLOAD_LIMIT + ' files');
-                console.log('🔒 File size limit: 100MB');
-                console.log('🔄 Retry mechanism: ' + CONFIG.MAX_RETRIES + ' attempts');
-                console.log('⚡ Performance: lazy loading, document fragments');
-                console.log('🎨 25+ unique gradients');
-                console.log('📐 30+ spacing values');
-                console.log('🌑 20+ shadow levels');
-                console.log('🎭 Vignette and overlay effects');
-                console.log('🌟 Animated borders and glows');
-                console.log('💎 Premium glass effects');
-                console.log('📱 Responsive: desktop, tablet, mobile');
-                console.log('🖨️  Print styles included');
-                console.log('♿ Reduced motion support');
-                console.log('🚀 Zanele\'s World is ready!');
+                DOM.fileInput.value = '';
+                DOM.fileDisplay.textContent = 'no file selected';
             }
+        };
 
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
-
-        })();
+        setViewMode(state.viewMode);
+        connectToGitHub();
+        console.log('🏆 Zanele\'s World — Ready to use!');
     </script>
 </body>
 </html>
