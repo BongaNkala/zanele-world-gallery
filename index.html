@@ -64,6 +64,38 @@
             letter-spacing: 0.3px;
         }
 
+        /* ===== STATUS BAR ===== */
+        .status-bar {
+            background: #d4edda;
+            border-radius: 16px;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-bar i {
+            color: #155724;
+        }
+
+        .status-bar .status-text {
+            color: #155724;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .status-bar .repo-info {
+            background: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #155724;
+            font-weight: 600;
+        }
+
         /* ===== UPLOAD CARD ===== */
         .upload-card {
             background: white;
@@ -145,7 +177,6 @@
         /* ===== BUTTONS ===== */
         .btn {
             border: none;
-            background: #eae2d9;
             padding: 0.7rem 1.8rem;
             border-radius: 60px;
             font-weight: 500;
@@ -159,19 +190,19 @@
             border: 1px solid transparent;
         }
 
-        .btn-primary {
-            background: #4f3a28;
+        .btn-success {
+            background: #28a745;
             color: white;
-            box-shadow: 0 4px 10px rgba(70, 50, 35, 0.15);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
         }
 
-        .btn-primary:hover:not(:disabled) {
-            background: #3d2d1e;
+        .btn-success:hover:not(:disabled) {
+            background: #218838;
             transform: scale(1.01);
-            box-shadow: 0 8px 16px rgba(60, 45, 30, 0.2);
+            box-shadow: 0 8px 16px rgba(40, 167, 69, 0.4);
         }
 
-        .btn-primary:disabled {
+        .btn-success:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
@@ -215,20 +246,20 @@
         .progress-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #b48b6e, #6b4f3a);
+            background: linear-gradient(90deg, #28a745, #20c997);
             border-radius: 20px;
             transition: width 0.3s ease;
         }
 
         .progress-label {
             font-size: 0.85rem;
-            color: #4f3a28;
-            font-weight: 500;
+            color: #28a745;
+            font-weight: 600;
             min-width: 70px;
         }
 
         .progress-icon {
-            color: #6b4f3a;
+            color: #28a745;
             font-size: 1.1rem;
         }
 
@@ -302,6 +333,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .media-preview img,
@@ -352,6 +384,24 @@
             transform: scale(1.2);
         }
 
+        .github-saved {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(40, 167, 69, 0.95);
+            color: white;
+            font-size: 0.6rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .github-saved.show {
+            display: block;
+        }
+
         /* ===== EMPTY STATE ===== */
         .empty-gallery {
             grid-column: 1 / -1;
@@ -371,6 +421,40 @@
 
         .empty-gallery p {
             font-size: 1.1rem;
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            max-width: 350px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: #28a745;
+        }
+
+        .toast.error {
+            background: #dc3545;
+        }
+
+        .toast.info {
+            background: #17a2b8;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -393,6 +477,10 @@
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                 gap: 1rem;
             }
+            .status-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         @media (max-width: 450px) {
@@ -413,6 +501,16 @@
             <span class="sub"><i class="far fa-eye"></i> · my story in frames</span>
         </header>
 
+        <!-- ===== STATUS BAR ===== -->
+        <div class="status-bar" id="statusBar">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span class="status-text" id="statusText">Connecting to GitHub...</span>
+            <span class="repo-info"><i class="fab fa-github"></i> BongaNkala/zanele-world-gallery</span>
+            <span style="margin-left: auto; font-size: 0.8rem; color: #155724;">
+                <i class="fas fa-cloud-upload-alt"></i> Auto-save enabled
+            </span>
+        </div>
+
         <!-- ===== UPLOAD SECTION ===== -->
         <div class="upload-card">
             <div class="upload-grid">
@@ -424,8 +522,8 @@
                     <span class="file-name" id="fileDisplay">no file selected</span>
                 </div>
                 <div class="upload-actions">
-                    <button class="btn btn-primary" id="uploadBtn">
-                        <i class="fas fa-upload"></i> Upload
+                    <button class="btn btn-success" id="uploadBtn">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload to GitHub
                     </button>
                     <button class="btn btn-outline" id="clearAllBtn">
                         <i class="fas fa-trash-alt"></i> Clear all
@@ -445,7 +543,8 @@
             <div class="upload-hint">
                 <span><i class="fas fa-image"></i> JPG, PNG, GIF</span>
                 <span><i class="fas fa-video"></i> MP4, MOV, AVI</span>
-                <span><i class="fas fa-upload"></i> Click to select files</span>
+                <span><i class="fas fa-github"></i> Files auto-save to GitHub</span>
+                <span><i class="fas fa-lock"></i> Token configured</span>
             </div>
         </div>
 
@@ -464,13 +563,28 @@
         </div>
     </div>
 
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
+
     <script>
         (function() {
             'use strict';
 
+            // ============================================================
+            // 🔐 HARDCODED GITHUB CREDENTIALS
+            // ============================================================
+
+            const GITHUB_TOKEN = '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';
+            const GITHUB_REPO = 'BongaNkala/zanele-world-gallery';
+
+            // ============================================================
+            // END OF HARDCODED CREDENTIALS
+            // ============================================================
+
             // ===== STATE =====
             let mediaItems = [];
             let idCounter = 0;
+            let isConnected = false;
 
             // ===== DOM REFS =====
             const fileInput = document.getElementById('fileInput');
@@ -483,10 +597,151 @@
             const progressContainer = document.getElementById('progressContainer');
             const progressFill = document.getElementById('progressFill');
             const progressLabel = document.getElementById('progressLabel');
+            const toast = document.getElementById('toast');
+            const statusText = document.getElementById('statusText');
+            const statusBar = document.getElementById('statusBar');
+
+            // ===== TOAST =====
+            let toastTimeout;
+
+            function showToast(message, type = 'info') {
+                clearTimeout(toastTimeout);
+                toast.textContent = message;
+                toast.className = 'toast ' + type + ' show';
+                toastTimeout = setTimeout(function() {
+                    toast.classList.remove('show');
+                }, 4000);
+            }
+
+            // ===== UPDATE STATUS =====
+            function updateStatus(message, type) {
+                statusText.textContent = message;
+                if (type === 'connected') {
+                    statusBar.style.background = '#d4edda';
+                    statusBar.style.borderColor = '#c3e6cb';
+                    statusBar.querySelector('i').className = 'fas fa-check-circle';
+                    statusBar.querySelector('i').style.color = '#155724';
+                } else if (type === 'error') {
+                    statusBar.style.background = '#f8d7da';
+                    statusBar.style.borderColor = '#f5c6cb';
+                    statusBar.querySelector('i').className = 'fas fa-exclamation-circle';
+                    statusBar.querySelector('i').style.color = '#721c24';
+                } else {
+                    statusBar.style.background = '#d1ecf1';
+                    statusBar.style.borderColor = '#bee5eb';
+                    statusBar.querySelector('i').className = 'fas fa-spinner fa-pulse';
+                    statusBar.querySelector('i').style.color = '#0c5460';
+                }
+            }
+
+            // ===== CONNECT TO GITHUB =====
+            function connectToGitHub() {
+                updateStatus('Connecting to GitHub...', 'connecting');
+
+                fetch('https://api.github.com/user', {
+                    headers: {
+                        'Authorization': 'token ' + GITHUB_TOKEN,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else if (response.status === 401) {
+                        throw new Error('Invalid token');
+                    } else {
+                        throw new Error('GitHub API error: ' + response.status);
+                    }
+                })
+                .then(userData => {
+                    updateStatus('✅ Connected as ' + userData.login, 'connected');
+                    isConnected = true;
+                    uploadBtn.disabled = false;
+                    uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
+                    showToast('✅ Connected to GitHub as ' + userData.login, 'success');
+                    loadGalleryFromGitHub();
+                })
+                .catch(error => {
+                    updateStatus('❌ ' + error.message, 'error');
+                    isConnected = false;
+                    uploadBtn.disabled = true;
+                    uploadBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Connection Failed';
+                    showToast('❌ Connection error: ' + error.message, 'error');
+                });
+            }
+
+            // ===== LOAD FROM GITHUB =====
+            function loadGalleryFromGitHub() {
+                if (!isConnected) return;
+
+                showToast('📂 Loading gallery from GitHub...', 'info');
+
+                fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/gallery', {
+                    headers: {
+                        'Authorization': 'token ' + GITHUB_TOKEN,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                })
+                .then(response => {
+                    if (response.status === 404) {
+                        return [];
+                    }
+                    if (!response.ok) {
+                        throw new Error('Failed to load gallery: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(files => {
+                    if (!files || !Array.isArray(files)) return;
+
+                    mediaItems = [];
+                    idCounter = 0;
+
+                    const imageFiles = files.filter(f =>
+                        f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i) ||
+                        f.name.match(/\.(mp4|mov|avi|webm|mkv)$/i)
+                    );
+
+                    if (imageFiles.length === 0) {
+                        renderGallery();
+                        showToast('📭 Gallery is empty.', 'info');
+                        return;
+                    }
+
+                    let loaded = 0;
+                    imageFiles.forEach(file => {
+                        const isVideo = file.name.match(/\.(mp4|mov|avi|webm|mkv)$/i);
+                        const type = isVideo ? 'video/' + file.name.split('.').pop() : 'image/' + file.name
+                            .split('.').pop();
+
+                        const rawUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO +
+                            '/main/gallery/' + encodeURIComponent(file.name);
+
+                        const newItem = {
+                            id: ++idCounter,
+                            type: type,
+                            dataURL: rawUrl,
+                            name: file.name,
+                            sha: file.sha,
+                            fromGitHub: true
+                        };
+                        mediaItems.push(newItem);
+                        loaded++;
+
+                        if (loaded === imageFiles.length) {
+                            renderGallery();
+                            showToast('✅ Loaded ' + imageFiles.length + ' items from GitHub!', 'success');
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading gallery:', error);
+                    showToast('❌ Error loading gallery: ' + error.message, 'error');
+                });
+            }
 
             // ===== RENDER GALLERY =====
             function renderGallery() {
-                // Remove all cards but keep emptyGallery
                 const children = galleryGrid.children;
                 for (let i = children.length - 1; i >= 0; i--) {
                     const child = children[i];
@@ -495,7 +750,6 @@
                     }
                 }
 
-                // Show/hide empty state
                 if (mediaItems.length === 0) {
                     emptyGallery.style.display = 'block';
                     mediaCounter.textContent = '0 items';
@@ -505,16 +759,19 @@
                 emptyGallery.style.display = 'none';
                 mediaCounter.textContent = `${mediaItems.length} item${mediaItems.length > 1 ? 's' : ''}`;
 
-                // Render cards (newest first)
                 const reversed = [...mediaItems].reverse();
                 for (const item of reversed) {
                     const card = document.createElement('div');
                     card.className = 'media-card';
                     card.dataset.id = item.id;
 
-                    // Preview
                     const preview = document.createElement('div');
                     preview.className = 'media-preview';
+
+                    const savedBadge = document.createElement('span');
+                    savedBadge.className = 'github-saved' + (item.fromGitHub ? ' show' : '');
+                    savedBadge.innerHTML = '<i class="fab fa-github"></i> GitHub';
+                    preview.appendChild(savedBadge);
 
                     if (item.type.startsWith('image/')) {
                         const img = document.createElement('img');
@@ -536,7 +793,6 @@
                         preview.appendChild(icon);
                     }
 
-                    // Info row
                     const info = document.createElement('div');
                     info.className = 'media-info';
 
@@ -566,6 +822,13 @@
 
             // ===== DELETE ITEM =====
             function deleteItem(id) {
+                const item = mediaItems.find(i => i.id === id);
+                if (item && item.fromGitHub && isConnected) {
+                    if (confirm('Delete "' + item.name + '" from GitHub?')) {
+                        deleteFromGitHub(item.name, item.sha);
+                    }
+                    return;
+                }
                 mediaItems = mediaItems.filter(function(item) {
                     return item.id !== id;
                 });
@@ -574,6 +837,44 @@
                     fileDisplay.textContent = 'no file selected';
                     fileInput.value = '';
                 }
+            }
+
+            function deleteFromGitHub(filename, sha) {
+                if (!sha) {
+                    showToast('❌ Cannot delete: missing file SHA', 'error');
+                    return;
+                }
+
+                fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/gallery/' + encodeURIComponent(
+                    filename), {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'token ' + GITHUB_TOKEN,
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify({
+                        message: 'Delete ' + filename + ' from gallery',
+                        sha: sha
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        mediaItems = mediaItems.filter(i => i.name !== filename);
+                        renderGallery();
+                        showToast('🗑️ Deleted ' + filename + ' from GitHub', 'success');
+                        if (mediaItems.length === 0) {
+                            fileDisplay.textContent = 'no file selected';
+                            fileInput.value = '';
+                        }
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Delete failed');
+                        });
+                    }
+                })
+                .catch(error => {
+                    showToast('❌ Delete failed: ' + error.message, 'error');
+                });
             }
 
             // ===== UPDATE PROGRESS =====
@@ -586,16 +887,74 @@
                     setTimeout(function() {
                         progressContainer.classList.remove('active');
                         uploadBtn.disabled = false;
-                        uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Upload';
-                    }, 400);
+                        uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
+                    }, 600);
                 }
+            }
+
+            // ===== UPLOAD TO GITHUB =====
+            function uploadToGitHub(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const base64 = e.target.result.split(',')[1];
+                        const filename = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+
+                        fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/gallery/' +
+                            encodeURIComponent(filename), {
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': 'token ' + GITHUB_TOKEN,
+                                'Accept': 'application/vnd.github.v3+json'
+                            },
+                            body: JSON.stringify({
+                                message: 'Upload ' + filename + ' to gallery',
+                                content: base64,
+                                branch: 'main'
+                            })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json();
+                            } else {
+                                return response.json().then(data => {
+                                    throw new Error(data.message || 'Upload failed');
+                                });
+                            }
+                        })
+                        .then(data => {
+                            const rawUrl = 'https://raw.githubusercontent.com/' + GITHUB_REPO +
+                                '/main/gallery/' + encodeURIComponent(filename);
+                            const newItem = {
+                                id: ++idCounter,
+                                type: file.type,
+                                dataURL: rawUrl,
+                                name: filename,
+                                sha: data.content.sha,
+                                fromGitHub: true
+                            };
+                            resolve(newItem);
+                        })
+                        .catch(error => {
+                            reject(error);
+                        });
+                    };
+                    reader.onerror = function() {
+                        reject(new Error('Failed to read file'));
+                    };
+                    reader.readAsDataURL(file);
+                });
             }
 
             // ===== ADD FILES =====
             function addFiles(fileList) {
                 if (!fileList || fileList.length === 0) return;
 
-                // Filter valid files
+                if (!isConnected) {
+                    showToast('⚠️ Please check GitHub connection.', 'error');
+                    return;
+                }
+
                 const validFiles = [];
                 for (let i = 0; i < fileList.length; i++) {
                     const file = fileList[i];
@@ -609,69 +968,58 @@
                     return;
                 }
 
-                // Show progress bar
                 progressContainer.classList.add('active');
                 progressFill.style.width = '0%';
                 progressLabel.textContent = '0%';
                 uploadBtn.disabled = true;
-                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Uploading...';
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Uploading to GitHub...';
 
-                let loaded = 0;
+                let uploaded = 0;
                 const total = validFiles.length;
 
-                for (let i = 0; i < validFiles.length; i++) {
-                    const file = validFiles[i];
-                    const reader = new FileReader();
+                validFiles.forEach(file => {
+                    uploadToGitHub(file)
+                        .then(newItem => {
+                            mediaItems.push(newItem);
+                            uploaded++;
+                            updateProgress(uploaded, total);
 
-                    reader.onload = function(e) {
-                        const dataURL = e.target.result;
-                        const newItem = {
-                            id: ++idCounter,
-                            type: file.type,
-                            dataURL: dataURL,
-                            name: file.name || 'media'
-                        };
-                        mediaItems.push(newItem);
-                        loaded++;
-                        updateProgress(loaded, total);
-
-                        if (loaded === total) {
-                            renderGallery();
-                            fileInput.value = '';
-                            fileDisplay.textContent = 'no file selected';
-                        }
-                    };
-
-                    reader.onerror = function() {
-                        loaded++;
-                        updateProgress(loaded, total);
-                        if (loaded === total) {
-                            renderGallery();
-                            fileInput.value = '';
-                            fileDisplay.textContent = 'no file selected';
-                        }
-                    };
-
-                    reader.readAsDataURL(file);
-                }
+                            if (uploaded === total) {
+                                renderGallery();
+                                fileInput.value = '';
+                                fileDisplay.textContent = 'no file selected';
+                                showToast('✅ Uploaded ' + total + ' files to GitHub!', 'success');
+                            }
+                        })
+                        .catch(error => {
+                            uploaded++;
+                            updateProgress(uploaded, total);
+                            showToast('❌ Failed to upload ' + file.name + ': ' + error.message,
+                            'error');
+                            if (uploaded === total) {
+                                renderGallery();
+                                fileInput.value = '';
+                                fileDisplay.textContent = 'no file selected';
+                            }
+                        });
+                });
             }
 
             // ===== CLEAR ALL =====
             function clearAll() {
                 if (mediaItems.length === 0) return;
-                if (confirm('Delete all items from Zanele\'s World?')) {
+                if (confirm('Delete all items from Zanele\'s World? (This will NOT delete from GitHub)')) {
                     mediaItems = [];
                     renderGallery();
                     fileInput.value = '';
                     fileDisplay.textContent = 'no file selected';
                     progressContainer.classList.remove('active');
                     uploadBtn.disabled = false;
-                    uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Upload';
+                    uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Upload to GitHub';
                 }
             }
 
             // ===== EVENT LISTENERS =====
-            // File input change
             fileInput.addEventListener('change', function(e) {
                 const files = e.target.files;
                 if (files.length === 0) {
@@ -684,8 +1032,11 @@
                 fileDisplay.textContent = names.length === 1 ? names[0] : names.length + ' files selected';
             });
 
-            // Upload button
             uploadBtn.addEventListener('click', function() {
+                if (!isConnected) {
+                    showToast('⚠️ GitHub not connected. Please refresh the page.', 'error');
+                    return;
+                }
                 if (fileInput.files.length === 0) {
                     alert('Please select at least one photo or video.');
                     return;
@@ -693,12 +1044,15 @@
                 addFiles(fileInput.files);
             });
 
-            // Clear all button
             clearAllBtn.addEventListener('click', clearAll);
 
             // ===== INIT =====
             renderGallery();
-            console.log('✨ Zanele\'s World ready with progress bar');
+            connectToGitHub();
+
+            console.log('✨ Zanele\'s World ready with hardcoded GitHub integration');
+            console.log('📁 Repository: ' + GITHUB_REPO);
+            console.log('🔐 Token configured');
 
         })();
     </script>
